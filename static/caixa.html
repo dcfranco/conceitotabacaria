@@ -41,8 +41,12 @@
             </div>
             <div class="col-sm-11 text-left">
                 <h2>Caixa</h2>
+                <div class="carrinho noselect">
+                    <span><i class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#itens-compras" title="Carrinho de compras"></i></span>
+                    <div class="radios-info">3</div>
+                </div>
                 <hr>
-                <div class="col-sm-7">
+                <div class="col-sm-8">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
                         <input id="barras" type="text" class="form-control" name="barras" placeholder="Digite o nome ou bipe um produto">
@@ -51,86 +55,40 @@
                         <table class="table" style="margin-bottom: -1px;">
                             <thead>
                                 <tr>
-                                    <th style="width:29%">Código</th>
-                                    <th style="width:53%">Descrição</th>
+                                    <th style="width:20%">Código</th>
+                                    <th style="width:60%">Descrição</th>
                                     <th style="width:20%">Preço</th>
                                 </tr>
                             </thead>
                         </table>
                         <div class="scroll2">
-                            <table class="table">
+                            <table class="table table-products">
                                 <tbody>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
+                                    <tr class="selected">
+                                        <td style="width:20%">180121651561</td>
+                                        <td style="width:60%">Mazzaia Menta</td>
+                                        <td style="width:20%">R$15,00</td>
                                     </tr>
                                     <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Adalia Mango Tango Ice 250g</td>
-                                        <td>R$25,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Adalia Mango Tango Ice 250g</td>
-                                        <td>R$25,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Mazzaia Menta</td>
-                                        <td>R$15,00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>180121651561</td>
-                                        <td>Adalia Mango Tango Ice 250g</td>
-                                        <td>R$25,00</td>
+                                        <td style="width:20%">180121651561</td>
+                                        <td style="width:60%">Mazzaia Menta</td>
+                                        <td style="width:20%">R$15,00</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
-                    <div class="row" style="margin-bottom: 10px;">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="row" style="margin-bottom: 20px;">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-5 item">
                             <div class="row">
-
+                                <div class="col-sm-12"><img src="img/scanner.png" width="100%" height="100%"></div>
+                            </div>
+                            <div class="row">
+                                <p style="color:#555; margin: 5px 10px 10px 10px;">Adalia Mango Tango Ice 250g</p>
                             </div>
                             <div class="row footer">
                                 <div class="row">
@@ -139,7 +97,7 @@
                                     <button class="btn secondary" htmlFor="lt"><i class="glyphicon glyphicon-plus-sign"></i></button>
                                 </div>
                                 <div class="row">
-                                    <p style="color:#555;">Valor total: <span style="font-size: 18px; font-weight: bold;">R$10,00</span></p>
+                                    <p style="color:#555;">Valor total: <span style="font-size: 19px; font-weight: bold;">R$10,00</span></p>
                                 </div>
                                 <div class="row">
                                     <button type="button" class="btn btn-danger btn-md"><i class="glyphicon glyphicon-shopping-cart"></i> Adicionar ao carrinho</button>
@@ -147,10 +105,77 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-5 finalizar">
+                            <button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-ok"></i> Finalizar venda</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="itens-compras" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="glyphicon glyphicon-shopping-cart"></i> Itens da compra</p>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <table class="table" style="margin-bottom: -1px;">
+                            <thead>
+                                <tr style="background: #F5F5F5">
+                                    <th style="width:20%">Código</th>
+                                    <th style="width:50%">Descrição</th>
+                                    <th style="width:10%">Quantidade</th>
+                                    <th style="width:20%">Preço</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="scrollModal">
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr class="selected">
+                                        <td style="width:20%">180121651561</td>
+                                        <td style="width:50%">Mazzaia Menta</td>
+                                        <td style="width:10%; text-align: center;"><input type="text" class="input col_9 tcenter" value="1" /></td>
+                                        <td style="width:15%">R$15,00</td>
+                                        <td style="width:5%;"><i class="glyphicon glyphicon-remove"></li></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%">180121651561</td>
+                                        <td style="width:50%">Mazzaia Menta</td>
+                                        <td style="width:10%; text-align: center;"><input type="text" class="input col_9 tcenter" value="1" /></td>
+                                        <td style="width:15%">R$15,00</td>
+                                        <td style="width:5%;"><i class="glyphicon glyphicon-remove"></li></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:20%">180121651561</td>
+                                        <td style="width:50%">Mazzaia Menta</td>
+                                        <td style="width:10%; text-align: center;"><input type="text" class="input col_9 tcenter" value="1" /></td>
+                                        <td style="width:15%">R$15,00</td>
+                                        <td style="width:5%;"><i class="glyphicon glyphicon-remove"></li></td>
+                                    </tr>
+                                    </tr>
+                                </tbody>
+                            </table>                            
+                        </div>
+                        <table class="table" style="margin-top: -4px; margin-bottom: -5px;">
+                            <tfoot>
+                                <tr style="background: #A9A9A9">
+                                    <td style="width:80%"><strong>Total:</strong></td>
+                                    <td style="width:20%"><strong>R$45,00</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer class="container-fluid text-center">
