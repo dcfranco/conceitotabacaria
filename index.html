@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conceito Tabacaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Grupos', 'Valor'],
+                ['Essências', 18],
+                ['Carvões', 11],
+                ['Acendedores', 2],
+                ['Utensílios', 2],
+                ['Essências', 18],
+                ['Carvões', 11],
+                ['Acendedores', 2],
+                ['Utensílios', 2],
+                ['Essências', 18],
+                ['Carvões', 11],
+            ]);
+
+            var options = {
+                title: 'Top 10 - Gastos por grupos',
+                titleTextStyle: {
+                    fontSize: 14,
+                    fontName: 'Open Sans'
+                },
+                is3D: true,
+                legend: {
+                    alignment: 'center'
+                },
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+            var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+            chart.draw(data, options);
+            chart2.draw(data, options);
+            chart3.draw(data, options);
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="#"><img src="https://image.ibb.co/dgErt5/taba.jpg" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Balanço</a></li>
+                    <li><a href="caixa.html">Caixa</a></li>
+                    <li><a href="#">Estoque</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <ul>
+                    <li class="active"><a href="#">Entrada</a></li>
+                    <li><a href="#">Saida</a></li>
+                    <li><a href="#">Vendas</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 text-left scroll">
+                <h2>Balanço de entrada</h2>
+                <hr>
+                <div class="chart" id="piechart" style="width: 50%; height: 300px;"></div>
+                <div class="chart" id="piechart2" style="width: 50%; height: 300px;"></div>
+                <div class="chart" id="piechart3" style="width: 50%; height: 300px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        DF Solutions
+    </footer>
+
+</body>
+
+</html>

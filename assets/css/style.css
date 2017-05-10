@@ -1,0 +1,133 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */
+ 
+ h2 {
+     font-family: 'Open Sans', sans-serif;
+     margin-left: 10px;
+ }
+ 
+ .navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+     background-color: #333335;
+ }
+ 
+ .navbar img {
+     width: inherit;
+     height: inherit;
+ }
+ 
+ .logo {
+     padding: 0px 10px 10px;
+ }
+ /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+ 
+ .chart {
+     float: left;
+ }
+ 
+ .row.content {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+ }
+ 
+ .scroll {
+     overflow: auto;
+     max-height: 88%;
+ }
+
+ div.scroll2 {
+     overflow: auto;
+     height: 350px !important;
+ }
+ 
+ .scroll2::-webkit-scrollbar-track,
+ .scroll::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+     background-color: #F5F5F5;
+ }
+ 
+ .scroll::-webkit-scrollbar {
+     width: 9px;
+     background-color: #F5F5F5;
+ }
+
+.scroll2::-webkit-scrollbar {
+     width: 5px;
+     background-color: #F5F5F5;
+ }
+
+.scroll2::-webkit-scrollbar-thumb,
+ .scroll::-webkit-scrollbar-thumb {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+     background-color: #555;
+ }
+ /* Set gray background color and 100% height */
+ table tbody tr:hover{
+    background-color: #F1F1F1;
+ }
+ .sidenav {
+     padding-left: 0;
+     padding-right: 0;
+     background-color: #f1f1f1;
+     height: 100%;
+     text-align: left;
+ }
+ 
+.input-group {
+    margin-bottom: 10px;
+}
+
+ div.sidenav ul {
+     list-style-type: none;
+     padding-left: 0;
+ }
+ 
+ div.sidenav li a {
+     text-decoration: none;
+     font-weight: bold;
+     color: #4b4b4b;
+     margin-left: 13px;
+ }
+ 
+ div.sidenav li.active {
+     background-color: #ffffff;
+ }
+ 
+ div.sidenav li a:hover {
+     cursor: default;
+ }
+ 
+ div.sidenav li {
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+ 
+ div.sidenav li:hover {
+     background-color: #b4b4b4;
+ }
+ /* Set black background color, white text and some padding  #f1f1f1*/
+ 
+ .well {
+     margin-right: 10px;
+ }
+ 
+ footer {
+     background-color: #333335;
+     color: #f1f1f1;
+     padding: 5px;
+     bottom: 0;
+     position: absolute;
+     width: 100%;
+ }
+ /* On small screens, set height to 'auto' for sidenav and grid */
+ 
+ @media screen and (max-width: 767px) {
+     .sidenav {
+         height: auto;
+         padding: 15px;
+     }
+     .row.content {
+         height: auto;
+     }
+ }
