@@ -82,8 +82,8 @@
      width: 230px;
  }
  
- .col_9, .input.col_9 {
-     width: 86px;
+ .item .input {
+     width: 95px;
      padding: 05px 05px;
      margin: 0 3px 10px;
      background-color: #f6f5f5;
@@ -93,10 +93,16 @@
      color: #666;
      border-radius: 4px;
      -webkit-transition: all 0.30s;
-     box-shadow: 0 0 5px rgba(0, 5,5, 5);
+     box-shadow: 0 0 5px rgba(0, 5, 5, 5);
      border: 1px solid #555;
  }
-
+ 
+ .item .btn-md {
+     height: 40px;
+     width: 190px;
+     font-weight: bold;
+ }
+ 
  .tcenter {
      text-align: center;
  }
@@ -104,7 +110,7 @@
  .item .footer {
      position: absolute;
      bottom: 15px;
-     margin-left: 25px;
+     margin-left: 19px;
  }
  
  .input-group {
