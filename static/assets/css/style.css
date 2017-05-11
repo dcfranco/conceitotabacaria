@@ -259,3 +259,52 @@
      /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
  }
+
+label.custom-checkbox:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+label.custom-checkbox {
+    margin-bottom: 0px !important;
+    display: block !important;
+    
+}
+
+.custom-checkbox .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 15px;
+    height: 15px;
+    margin-bottom: -3px;
+}
+
+.custom-checkbox .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 10%;
+}
+
+label.custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+label.custom-checkbox input[type="checkbox"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+label.custom-checkbox input[type="checkbox"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+label.custom-checkbox input[type="checkbox"]:disabled + .cr {
+    opacity: .5;
+}

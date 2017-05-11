@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -35,13 +36,61 @@
         <div class="row content">
             <div class="col-sm-1 sidenav">
                 <ul>
-
+                    <li class="active"><a href="estoque.html">Principal</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="marcas.html">Marcas</a></li>
+                    <li><a href="grupos.html">Grupos</a></li>
                 </ul>
             </div>
             <div class="col-sm-11 text-left scroll">
                 <h2>Estoque</h2>
                 <hr>
-                
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="vertical-align: middle;"><i class="fa fa-archive" style="margin-right: 20px;"></i><strong>Estoque até o momento</strong></div>
+                            <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                <div class="col-sm-7">
+                                    <p><i class="fa fa-bars" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produtos cadastrados:</p>
+                                    <p><i class="fa fa-industry" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marcas cadastradas:</span></p>
+                                    <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Valor do estoque:</span></p>
+                                    <hr>
+                                    <p><i class="fa fa-tasks" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produtos sem estoque:</span></p>
+                                    <p><i class="fa fa-tasks" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marcas sem produtos:</span></p>
+                                </div>
+                                <div class="col-sm-5">
+                                    <p>50000 <span style="font-size: 11px;">(itens)</span></p>
+                                    <p>50 <span style="font-size: 11px;">(itens)</span></p>
+                                    <p>R$10.000,00</p>
+                                    <hr>
+                                    <p>10 <span style="font-size: 11px;">(produtos)</span></p>
+                                    <p>10 <span style="font-size: 11px;">(marcas)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-tags" style="margin-right: 20px;"></i><strong>Vendas até o momento</strong></div>
+                            <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                <div class="col-sm-7">
+                                    <p><i class="glyphicon glyphicon-shopping-cart" style="margin-right: 10px;"></i><span style="font-weight: bold;">Total de produtos:</p>
+                                    <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Valor total:</span></p>
+                                    <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro total:</span></p>
+                                    <hr>
+                                    <p><i class="fa fa-shopping-basket" style="margin-right: 10px;"></i><span style="font-weight: bold;">Vendas de fidelidade:</span></p>
+                                </div>
+                                <div class="col-sm-5">
+                                    <p>50 <span style="font-size: 11px;">(itens)</span></p>
+                                    <p>R$50.000,00</p>
+                                    <p>R$10.000,00</p>
+                                    <hr>
+                                    <p>50 <span style="font-size: 11px;">(produtos)</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </div>
             </div>
         </div>
     </div>
