@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conceito Tabacaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="#"><img src="https://image.ibb.co/dgErt5/taba.jpg" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Balanço</a></li>
+                    <li><a href="caixa.html">Caixa</a></li>
+                    <li class="active"><a href="estoque.html">Estoque</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <ul>
+                    <li><a href="estoque.html">Principal</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li class="active"><a href="marcas.html">Marcas</a></li>
+                    <li><a href="grupos.html">Grupos</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 text-left scroll">
+                <h2>Estoque - Marcas</h2>
+                <hr>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                                <input id="barras" type="text" class="form-control" name="barras" placeholder="Digite a marca">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div>
+                                <table class="table" style="margin-bottom: -1px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:20%">
+                                                <center>Código</center>
+                                            </th>
+                                            <th style="width:52%">Descrição</th>
+                                            <th style="width:15%" align="center">Produtos</th>
+                                            <th style="width:15%" align="center">Estoque</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="scroll2">
+                                    <table class="table table-products">
+                                        <tbody>
+                                            <tr class="selected">
+                                                <td style="width:20%" align="center">1</td>
+                                                <td style="width:50%">Adalia</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%" align="center">15</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%" align="center">1</td>
+                                                <td style="width:50%">Gold</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%" align="center">15</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%" align="center">1</td>
+                                                <td style="width:50%">Hookah Brasil</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%" align="center">15</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%" align="center">1</td>
+                                                <td style="width:50%">Smoke</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%" align="center">15</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="fa fa-industry" style="margin-right: 20px;"></i><strong>Alterar marca </strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="row input-type" style="margin-left: 10px;">
+                                        <div class="col-sm-5">
+                                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</span></p>
+                                            <p><i class="fa fa-object-group" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                                            <hr>
+                                            <p><i class="fa fa-calendar" style="margin-right: 10px;"></i><span style="font-weight: bold;">Data de cadastro:</span></p>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <p><input type="text" class="input col_100p" value="" /></p>
+                                            <p><select class="input col_100p">
+                                                <option value="">Carvão</option>
+                                                <option value="">Essência</option>
+                                                <option value="">Mangueira</option>
+                                                <option value="">Vaso</option>
+                                                <option value="">Stem</option>
+                                                <option value="">Roxe</option>
+                                            </select></p>
+                                            <hr>
+                                            <p><input type="text" class="input col_10" value="" disabled /></p>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-6" align="left">
+                                            <button type="button" class="btn btn-link" style="width: 200px;" data-toggle="modal" data-target="#marca-criar">Criar nova marca</button>
+                                        </div>
+                                        <div class="col-sm-6" align="center">
+                                            <button type="button" class="btn btn-danger" style="width: 200px;">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="marca-criar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-industry"></i> Criar nova marca</p>
+                    <span style="color:#555; font-family: Arial, Helvetica, sans-serif;">Preencha as informações e salve para criar uma nova marca</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row input-type" style="margin-left: 10px;">
+                        <div class="col-sm-5">
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</span></p>
+                            <p><i class="fa fa-object-group" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><input type="text" class="input col_100p" value="" /></p>
+                            <p><select class="input col_100p">
+                                <option value="">Carvão</option>
+                                <option value="">Essência</option>
+                                <option value="">Mangueira</option>
+                                <option value="">Vaso</option>
+                                <option value="">Stem</option>
+                                <option value="">Roxe</option>
+                            </select></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        DF Solutions
+    </footer>
+
+</body>
+
+</html>
