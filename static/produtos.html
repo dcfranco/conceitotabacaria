@@ -45,63 +45,359 @@
             <div class="col-sm-11 text-left scroll">
                 <h2>Estoque - Produtos</h2>
                 <div class="carrinho noselect">
-                    <span><i class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#itens-compras" title="Criar novo produto"></i></span>
+                    <span><i class="fa fa-database" data-toggle="modal" data-target="#produto-lote" title="Adicionar lote do produto ao estoque"></i></span>
+                    <div class="shortcut-info" style="margin-right: 20px;">F4</div>
+                    <span><i class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#criar-produto" title="Criar novo produto"></i></span>
+                    <div class="shortcut-info">F5</div>
                 </div>
                 <hr>
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
-                                <input id="barras" type="text" class="form-control" name="barras" placeholder="Digite o código ou bipe um produto">
+                                <input id="barras" type="text" class="form-control" name="barras" placeholder="Digite o nome ou bipe um produto">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-12">
+                            <div>
+                                <table class="table" style="margin-bottom: -1px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:20%">Código</th>
+                                            <th style="width:60%">Descrição</th>
+                                            <th style="width:15%">Estoque</th>
+                                            <th style="width:15%">Preço</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="scroll2">
+                                    <table class="table table-products">
+                                        <tbody>
+                                            <tr class="selected">
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:60%">Mazzaia Menta</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%">R$15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:50%">Mazzaia Menta</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%">R$15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:60%">Mazzaia Menta</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%">R$15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:60%">Mazzaia Menta</td>
+                                                <td style="width:15%" align="center">15</td>
+                                                <td style="width:15%">R$15,00</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading" style="vertical-align: middle;"><i class="fa fa-shopping-basket" style="margin-right: 20px;"></i><strong>Produto </strong></div>
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="fa fa-shopping-basket" style="margin-right: 20px;"></i><strong>Alterar o produto </strong></div>
                                 <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
-                                    <div class="col-sm-5">
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Código:</p>
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</span></p>
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Quantidade:</span></p>
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Medida:</span></p>
-                                        <hr>
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marca:</span></p>
-                                        <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                                    <div class="row input-type" style="margin-left: 10px;">
+                                        <div class="col-sm-5">
+                                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</span></p>
+                                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Peso:</span></p>
+                                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Medida:</span></p>
+                                            <hr>
+                                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Média de preço de compra:</span></p>
+                                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Média de preço de venda:</span></p>
+                                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Média de lucro:</span></p>
+                                            <hr>
+                                            <p><i class="fa fa-object-group" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                                            <p><i class="fa fa-industry" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marca:</span></p>
+                                            <hr>
+                                            <p><i class="fa fa-database" style="margin-right: 10px;"></i><span style="font-weight: bold;">Em estoque:</span></p>
+                                            <p><i class="fa fa-calendar" style="margin-right: 10px;"></i><span style="font-weight: bold;">Data de cadastro:</span></p>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <p><input type="text" class="input col_100p" value="" /></p>
+                                            <p><input type="text" class="input col_7" value="" /><span style="font-size: 11px;">(mg)</span></p>
+                                            <p><select class="input col_100p">
+                                                <option value="">Miligramas (mg)</option>
+                                                <option value="">Gramas (g)</option>
+                                                <option value="">Mililitros (ml)</option>
+                                                <option value="">Litros (L)</option>
+                                                <option value="">Itens</option>
+                                            </select></p>
+                                            <hr>
+                                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                                            <hr>
+                                            <p><select class="input col_100p">
+                                                <option value="">Carvão</option>
+                                                <option value="">Essência</option>
+                                                <option value="">Mangueira</option>
+                                                <option value="">Vaso</option>
+                                                <option value="">Stem</option>
+                                                <option value="">Roxe</option>
+                                            </select></p>
+                                            <p><select class="input col_100p">
+                                                <option value="">Adalia</option>
+                                                <option value="">Mazzaia</option>
+                                                <option value="">Tangiers</option>
+                                                <option value="">Gold</option>
+                                                <option value="">Hookah Time</option>
+                                            </select></p>
+                                            <hr>
+                                            <p><input type="text" class="input col_7" value="10" disabled /><span style="font-size: 11px;">(unidades)</span></p>
+                                            <p><input type="text" class="input col_10" value="" disabled /></p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-5">
-                                        <p><input type="text" class="input col_9 tcenter" value="" /></p>
-                                        <p><input type="text" class="input col_100p tcenter" value="" /></p>
-                                        <p><input type="text" class="input col_7 tcenter" value="" /><span style="font-size: 11px;">(mg)</span></p>
-                                        <p><select class="input col_100p tcenter">
-                                            <option value="">Miligramas (mg)</option>
-                                            <option value="">Gramas (g)</option>
-                                            <option value="">Mililitros (ml)</option>
-                                            <option value="">Litros (L)</option>
-                                            <option value="">Itens</option>
-                                        </select></p>
-                                        <hr>
-                                        <p><select class="input col_100p tcenter">
-                                            <option value="">Adalia</option>
-                                            <option value="">Mazzaia</option>
-                                            <option value="">Tangiers</option>
-                                            <option value="">Gold</option>
-                                            <option value="">Hookah Time</option>
-                                        </select></p>
-                                        <p><select class="input col_100p tcenter">
-                                            <option value="">Carvão</option>
-                                            <option value="">Essência</option>
-                                            <option value="">Mangueira</option>
-                                            <option value="">Vaso</option>
-                                            <option value="">Stem</option>
-                                            <option value="">Roxe</option>
-                                        </select></p>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-6" align="left">
+                                            <button type="button" class="btn btn-link" style="width: 200px;" data-toggle="modal" data-target="#produto-mais-um">Adicionar produto ao estoque</button>
+                                        </div>
+                                        <div class="col-sm-6" align="right">
+                                            <button type="button" class="btn btn-danger" style="width: 200px;">Salvar</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="produto-lote" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-database"></i> Adicionar produtos por lote</p>
+                    <span style="color:#555; font-family: Arial, Helvetica, sans-serif;">Verifique se as informações estão corretas e confirme para cadastrar os produtos</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row input-type" style="margin-left: 10px;">
+                        <div class="col-sm-4">
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Código do lote:</p>
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Quantidade de unidades:</p>
+                            <hr>
+                            <p><i class="fa fa-object-group" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                            <p><i class="fa fa-industry" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marca:</span></p>
+                            <p><i class="fa fa-shopping-basket" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produto:</span></p>
+                            <hr>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço de compra do lote:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço de venda por unidade:</span></p>
+                            <hr>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço de compra por unidade:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro por unidade:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro total:</span></p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><input type="text" class="input col_9" value="" /></p>
+                            <p><input type="text" class="input col_7" value="" /><span style="font-size: 11px;">(itens)</span></p>
+                            <hr>
+                            <p><select class="input col_100p">
+                                <option value="">Carvão</option>
+                                <option value="">Essência</option>
+                                <option value="">Mangueira</option>
+                                <option value="">Vaso</option>
+                                <option value="">Stem</option>
+                                <option value="">Roxe</option>
+                            </select></p>
+                            <p><select class="input col_100p">
+                                <option value="">Adalia</option>
+                                <option value="">Mazzaia</option>
+                                <option value="">Tangiers</option>
+                                <option value="">Gold</option>
+                                <option value="">Hookah Time</option>
+                            </select></p>
+                            <p><select class="input col_100p">
+                                <option value="">Adalia Mango Tango Ice 50g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                                <option value="">Adalia Mango Tango Ice 50g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                                <option value="">Tangiers Cane Mint Red 250g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                            </select></p>
+                            <hr>
+                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                            <hr>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 5px; margin-right: 5px;  display: none;">
+                        <div>
+                            <table class="table" style="margin-bottom: -1px;">
+                                <thead>
+                                    <tr style="background: #f6f5f5;">
+                                        <th style="width:12%">Código</th>
+                                        <th style="width:47%">Descrição</th>
+                                        <th style="width:16%">Preço de compra</th>
+                                        <th style="width:15%">Preço de venda</th>
+                                        <th style="width:10%">Grupo</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <div class="scrollModal">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td style="width:12%">180121651561</td>
+                                            <td style="width:47%">Adalia Mazzaia Menta 250g</td>
+                                            <td style="width:16%" align="center">R$10,00</td>
+                                            <td style="width:15%" align="center">R$15,00</td>
+                                            <td style="width:10%">Essência</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:12%">180121651561</td>
+                                            <td style="width:47%">Adalia Mazzaia Menta 250g</td>
+                                            <td style="width:16%" align="center">R$10,00</td>
+                                            <td style="width:15%" align="center">R$15,00</td>
+                                            <td style="width:10%">Essência</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width:12%">180121651561</td>
+                                            <td style="width:47%">Adalia Mazzaia Menta 250g</td>
+                                            <td style="width:16%" align="center">R$10,00</td>
+                                            <td style="width:15%" align="center">R$15,00</td>
+                                            <td style="width:10%">Essência</td>
+                                        </tr>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="produto-mais-um" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-database"></i> Adicionar produto ao estoque</p>
+                    <span style="color:#555; font-family: Arial, Helvetica, sans-serif;">Preencha as informações e salve para adicionar o produto ao estoque</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row input-type" style="margin-left: 10px;">
+                        <div class="col-sm-4">
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Código:</p>
+                            <hr>
+                            <p><i class="fa fa-shopping-basket" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produto:</span></p>
+                            <hr>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço de compra:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço de venda:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro:</span></p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><input type="text" class="input col_9" value="" /></p>
+                            <hr>
+                            <p><select class="input col_100p" disabled>
+                                <option value="">Adalia Mango Tango Ice 50g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                                <option value="">Adalia Mango Tango Ice 50g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                                <option value="">Tangiers Cane Mint Red 250g</option>
+                                <option value="">Adalia Maracuja Ice 50g</option>
+                            </select></p>
+                            <hr>
+                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-sm-6" align="left">
+                        <button type="button" class="btn btn-link">Salvar e adicionar outro</button>
+                    </div>
+                    <div class="col-sm-6" align="right">
+                        <button type="button" class="btn btn-danger">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="criar-produto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-shopping-basket"></i> Criar novo produto</p>
+                    <span style="color:#555; font-family: Arial, Helvetica, sans-serif;">Preencha as informações e salve para adicionar o produto ao estoque</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row input-type" style="margin-left: 10px;">
+                        <div class="col-sm-5">
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</span></p>
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Peso:</span></p>
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Medida:</span></p>
+                            <hr>
+                            <p><i class="fa fa-object-group" style="margin-right: 10px;"></i><span style="font-weight: bold;">Grupo:</span></p>
+                            <p><i class="fa fa-industry" style="margin-right: 10px;"></i><span style="font-weight: bold;">Marca:</span></p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><input type="text" class="input col_100p" value="" /></p>
+                            <p><input type="text" class="input col_7" value="" /><span style="font-size: 11px;">(mg)</span></p>
+                            <p><select class="input col_100p">
+                                <option value="">Miligramas (mg)</option>
+                                <option value="">Gramas (g)</option>
+                                <option value="">Mililitros (ml)</option>
+                                <option value="">Litros (L)</option>
+                                <option value="">Itens</option>
+                            </select></p>
+                            <hr>
+                            <p><select class="input col_100p">
+                                <option value="">Carvão</option>
+                                <option value="">Essência</option>
+                                <option value="">Mangueira</option>
+                                <option value="">Vaso</option>
+                                <option value="">Stem</option>
+                                <option value="">Roxe</option>
+                            </select></p>
+                            <p><select class="input col_100p">
+                                <option value="">Adalia</option>
+                                <option value="">Mazzaia</option>
+                                <option value="">Tangiers</option>
+                                <option value="">Gold</option>
+                                <option value="">Hookah Time</option>
+                            </select></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-sm-6" align="left">
+                        <button type="button" class="btn btn-link">Salvar e adicionar ao estoque</button>
+                    </div>
+                    <div class="col-sm-6" align="right">
+                        <button type="button" class="btn btn-danger">Salvar</button>
                     </div>
                 </div>
             </div>
