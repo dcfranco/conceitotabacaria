@@ -193,7 +193,7 @@
     </div>
 
     <div class="modal fade" id="produto-composto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document" style="width: 80%;">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-clone"></i> Criar produto composto</p>
@@ -201,7 +201,31 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
+                    <div class="row input-type" style="margin-left: 10px;">
+                        <div class="col-sm-4">
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Código:</p>
+                            <p><i class="fa fa-pencil" style="margin-right: 10px;"></i><span style="font-weight: bold;">Descrição:</p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Desconto no preço:</span></p>
+                            <hr>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço do produto:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Preço do produto com desconto:</span></p>
+                            <hr>                            
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro do produto:</span></p>
+                            <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro do produto com desconto:</span></p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p><input type="text" class="input col_9" value="" /></p>
+                            <p><input type="text" class="input col_100p" value="" /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                            <hr>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /></p>
+                            <hr>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                            <p><input type="text" class="input col_7" value="R$0,00" disabled /> <span style="font-size: 12px; color: darkgreen; font-weight: bold;">0%</span></p>
+                        </div>
+                    </div>
+                    <div class="row" style="display: none;">
                         <div class="col-sm-5" style="border-right: solid 1px #e5e5e5;">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
@@ -273,12 +297,21 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <table class="table" style="margin-top: -4px; margin-bottom: -5px;">
+                                    <tfoot>
+                                        <tr style="background: #f6f5f5">
+                                            <td style="width:33%" align="left"><span style="font-size: 15px; margin-right: 3px;">Quantidade:</span> <span style="font-size: 15px; font-weight: bold;">15 itens</span></td>
+                                            <td style="width:33%" align="center"><span style="font-size: 15px; margin-right: 3px;">Total de desconto:</span> <span style="font-size: 15px; font-weight: bold;">R$0,00</span></td>
+                                            <td style="width:33%" align="right"><span style="font-size: 15px; margin-right: 3px;">Total do produto:</span><span style="font-size: 15px; font-weight: bold;">R$45,00</span></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Avançar</button>
+                    <button type="button" class="btn btn-danger">Confirmar</button>
                 </div>
             </div>
         </div>
