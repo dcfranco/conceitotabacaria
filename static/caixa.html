@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,7 +44,8 @@
                 </ul>
             </div>
             <div class="col-sm-11 text-left">
-                <h2>Caixa</h2>
+                <h2><i class="fa fa-shopping-basket"></i> Caixa</h2>
+                <span style="font-family: Arial, Helvetica, sans-serif; cursor: default;margin-left: 30px; margin-top: 30px;">Bipe ou compre algum produto para começar a venda</span>
                 <div class="carrinho noselect">
                     <span><i class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="#itens-compras" title="Carrinho de compras"></i></span>
                     <div class="radios-info">3</div>
@@ -82,7 +84,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-1"></div>
+                <div class="col-sm-1">                    
+                </div>
                 <div class="col-sm-2">
                     <div class="row">
                         <div class="col-sm-12">
@@ -111,7 +114,7 @@
                             </div>
                             <div class="row" style="margin-top: 13px;">
                                 <div class="col-sm-12 finalizar">
-                                    <button type="button" class="btn btn-default btn-lg" onclick="location.href='finalizar_venda.html'"><i class="glyphicon glyphicon-ok"></i> Finalizar venda</button>
+                                    <button type="button" class="btn btn-default btn-lg" onclick="location.href='finalizar_venda.html'">Efetuar pagamento <i class="glyphicon glyphicon-chevron-right"></i></button>
                                 </div>
                             </div>
                         </div>

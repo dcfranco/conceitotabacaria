@@ -353,3 +353,11 @@
  label.custom-checkbox input[type="checkbox"]:disabled + .cr {
      opacity: .5;
  }
+
+ .direct-arrow {
+     font-size: 30px;     
+ }
+
+ .direct-arrow:hover {
+    color: #d9534f;
+ }

@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="test.js"></script>
-    <script>if (window.module) module = window.module;</script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -48,6 +52,8 @@
             <div class="col-sm-11 text-left scroll">
                 <h2>Estoque - Produtos</h2>
                 <div class="carrinho noselect">
+                    <span><i class="fa fa-clone" data-toggle="modal" data-target="#produto-composto" title="Criar produto composto"></i></span>
+                    <div class="shortcut-info" style="margin-right: 20px;">F3</div>
                     <span><i class="fa fa-database" data-toggle="modal" data-target="#produto-lote" title="Adicionar lote do produto ao estoque"></i></span>
                     <div class="shortcut-info" style="margin-right: 20px;">F4</div>
                     <span><i class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#criar-produto" title="Criar novo produto"></i></span>
@@ -181,6 +187,98 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="produto-composto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document" style="width: 80%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p style="color:#555; font-weight: bold; font-size: 18px;"><i class="fa fa-clone"></i> Criar produto composto</p>
+                    <span style="color:#555; font-family: Arial, Helvetica, sans-serif;">Selecione os produtos abaixo e avance para preencher as informações</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-5" style="border-right: solid 1px #e5e5e5;">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-barcode"></i></span>
+                                <input id="barras" type="text" class="form-control" name="barras" placeholder="Digite o nome ou bipe um produto">
+                            </div>
+                            <div>
+                                <table class="table" style="margin-bottom: -1px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:20%">Código</th>
+                                            <th style="width:60%">Descrição</th>
+                                            <th style="width:20%">Preço</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="scroll2">
+                                    <table class="table table-products">
+                                        <tbody>
+                                            <tr class="selected">
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:60%">Mazzaia Menta</td>
+                                                <td style="width:20%">R$15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:60%">Mazzaia Menta</td>
+                                                <td style="width:20%">R$15,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1" align="center" style="margin-top: 175px;">
+                            <div class="row">
+                                <span class="direct-arrow"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                            </div>
+                            <div class="row">
+                                <span class="direct-arrow"><i class="glyphicon glyphicon-circle-arrow-left"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6" style="border-left: solid 1px #e5e5e5; height: 488px;">
+                            <div>
+                                <table class="table" style="margin-bottom: -1px;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:20%">Código</th>
+                                            <th style="width:45%">Descrição</th>
+                                            <th style="width:18%">Desconto</th>
+                                            <th style="width:15%">Preço Final</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="scroll2">
+                                    <table class="table table-products">
+                                        <tbody>
+                                            <tr class="selected">
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:45%">Adalia Mango Tango Ice 50g</td>
+                                                <td style="width:20%; text-align: center;" align="center"><input type="text" class="input tcenter" value="R$0,00" /> <span style="font-size: 12px; color: darkgreen; font-weight: bold; margin-left: 5px;">0%</span></td>
+                                                <td style="width:15%" align="center">R$15,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width:20%">180121651561</td>
+                                                <td style="width:45%">Adalia Mango Tango Ice 50g</td>
+                                                <td style="width:20%; text-align: center;" align="center"><input type="text" class="input tcenter" value="R$0,00" /> <span style="font-size: 12px; color: darkgreen; font-weight: bold; margin-left: 5px;">0%</span></td>
+                                                <td style="width:15%" align="center">R$15,00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger">Avançar</button>
                 </div>
             </div>
         </div>
