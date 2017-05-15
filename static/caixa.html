@@ -6,8 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
+    <script>if (window.module) module = window.module;</script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -108,7 +111,7 @@
                             </div>
                             <div class="row" style="margin-top: 13px;">
                                 <div class="col-sm-12 finalizar">
-                                    <button type="button" class="btn btn-default btn-lg"><i class="glyphicon glyphicon-ok"></i> Finalizar venda</button>
+                                    <button type="button" class="btn btn-default btn-lg" onclick="location.href='finalizar_venda.html'"><i class="glyphicon glyphicon-ok"></i> Finalizar venda</button>
                                 </div>
                             </div>
                         </div>
