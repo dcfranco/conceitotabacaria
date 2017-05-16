@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conceito Tabacaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="#"><img src="https://image.ibb.co/dgErt5/taba.jpg" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Balanço</a></li>
+                    <li class="active"><a href="caixa.html">Caixa</a></li>
+                    <li><a href="estoque.html">Estoque</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <ul>
+                    <li class="active"><a href="caixa.html">Caixa</a></li>
+                    <li><a href="consulta.html">Consulta</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 text-left">
+                <h2><i class="fa fa-shopping-basket"></i> Fechamento de caixa</h2>
+                <span style="font-family: Arial, Helvetica, sans-serif; cursor: default;margin-left: 30px; margin-top: 30px;">Informações sobre o caixa atual, clique em confirmar para fechá-lo</span>
+                <hr>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-sort" style="margin-right: 20px;"></i><strong>Lista de produtos comprados</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <table class="table" style="margin-bottom: -1px;">
+                                        <thead>
+                                            <tr>
+                                                <th style="width:17%"><span style="font-size: 15px;">Código</span></th>
+                                                <th style="width:55%"><span style="font-size: 15px;">Descrição</span></th>
+                                                <th style="width:10%" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade"><span style="font-size: 15px;">Fidelidade</span></th>
+                                                <th style="width:10%"><span style="font-size: 15px;">Quantidade</span></th>
+                                                <th style="width:10%"><span style="font-size: 15px;">Preço</span></th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <div class="scroll2">
+                                        <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:12%">180121651561</td>
+                                                    <td style="width:50%">Mazzaia Menta</td>
+                                                    <td style="width:10%;" title="Se o produto foi entregue quando o cliente completou o cartão fidelidade">
+                                                        <label class="custom-checkbox"><input type="checkbox" value="" disabled>
+                                                        <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span></label>
+                                                    </td>
+                                                    <td style="width:10%;">1</td>
+                                                    <td style="width:10%">R$15,00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <table class="table" style="margin-top: -4px; margin-bottom: -5px;">
+                                        <tfoot>
+                                            <tr style="background: #f6f5f5">
+                                                <td style="width:50%" align="left">
+                                                    <span style="font-size: 15px; margin-right: 3px;">Quantidade:</span>
+                                                    <span style="font-size: 15px; font-weight: bold;">15 itens</span>
+                                                </td>
+                                                <td style="width:50%" align="right">
+                                                    <span style="font-size: 15px; margin-right: 3px;">Total da compra:</span>
+                                                    <span style="font-size: 15px; font-weight: bold;">R$45,00</span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-5">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-stats" style="margin-right: 20px;"></i><strong>Informações</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="col-sm-6">
+                                        <p><i class="fa fa-shopping-basket" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produtos comprados:</span></p>
+                                        <p><i class="fa fa-shopping-basket" style="margin-right: 10px;"></i><span style="font-weight: bold;">Produtos de fidelidade:</span></p>
+                                        <hr>
+                                        <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Valor de produtos vendidos:</span></p>
+                                        <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Valor de produtos de fidelidade:</span></p>
+                                        <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Valor de troco:</span></p>
+                                        <p><i class="fa fa-money" style="margin-right: 10px;"></i><span style="font-weight: bold;">Lucro total:</span></p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p>50 <span style="font-size: 11px;">(itens)</span></p>
+                                        <p>50 <span style="font-size: 11px;">(itens)</span></p>
+                                        <hr>
+                                        <p>R$500,00</p>
+                                        <p>R$600,00</p>
+                                        <p>R$50,00</p>
+                                        <p>R$700,00 <span style="margin-left: 10px; color: darkgreen; font-weight: bold;">0%</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-upload" style="margin-right: 20px;"></i><strong>Produtos mais comprados</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Produto</span></p>
+                                        </div>
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Valor total</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12" align="center" style="margin-top: 30px">
+                            <button type="button" class="btn btn-danger btn-lg" onclick="location.href='caixa_abrir.html'"><i class="glyphicon glyphicon-remove"></i> Fechar caixa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        DF Solutions
+    </footer>
+    <script>
+        document.getElementById("barras").focus();
+    </script>
+</body>
+
+</html>

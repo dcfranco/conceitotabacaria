@@ -15,7 +15,8 @@ function createWindow () {
   win = new BrowserWindow({
     width: mainScreen.workAreaSize.width,
     height: mainScreen.workAreaSize.height,
-    frame: false
+    frame: false,
+    resizable: false
   });
   
   // and load the index.html of the app.

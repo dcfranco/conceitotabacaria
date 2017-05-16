@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conceito Tabacaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data1 = google.visualization.arrayToDataTable([
+                ['Produtos', 'Valores'],
+                ['Adalia Mango Tango Ice 50g', 11],
+                ['Gold Maracuja 50g', 2],
+                ['Zomo Strong Mint 50g', 2],
+                ['Tangiers Cane Mint Red 150g', 2],
+                ['Adalia Blueberry Mint 200g', 7]
+            ]);
+            var data2 = google.visualization.arrayToDataTable([
+                ['Marcas', 'Valores'],
+                ['Adalia', 150.00],
+                ['Gold', 150.00],
+                ['Mazzaia', 150.00],
+                ['Mizo', 150.00],
+                ['Tangiers', 150.00]
+            ]);
+            var data3 = google.visualization.arrayToDataTable([
+                ['Grupos', 'Quantidade'],
+                ['Essência', 10],
+                ['Carvão', 10],
+                ['Fogareiro', 10],
+                ['Mangueira', 10],
+                ['Vaso', 10]
+            ]);
+
+            var options1 = {
+                title: 'Produtos mais vendidos',
+                is3D: true,
+            };
+            var options2 = {
+                title: 'Marcas mais vendidas',
+                is3D: true,
+            };
+            var options3 = {
+                title: 'Grupos mais vendidos',
+                is3D: true,
+            };
+
+            var chart1 = new google.visualization.PieChart(document.getElementById('chart1'));
+            var chart2 = new google.visualization.PieChart(document.getElementById('chart2'));
+            var chart3 = new google.visualization.PieChart(document.getElementById('chart3'));
+
+            chart1.draw(data1, options1);
+            chart2.draw(data2, options2);
+            chart3.draw(data3, options3);
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="#"><img src="https://image.ibb.co/dgErt5/taba.jpg" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Balanço</a></li>
+                    <li><a href="caixa.html">Caixa</a></li>
+                    <li><a href="estoque.html">Estoque</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <ul>
+                    <li><a href="index.html">Entrada</a></li>
+                    <li><a href="saida.html">Saida</a></li>
+                    <li class="active"><a href="vendas.html">Vendas</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 text-left scroll">
+                <h2><i class="glyphicon glyphicon-stats"></i> Balanço de vendas</h2>
+                <span style="font-family: Arial, Helvetica, sans-serif; cursor: default;margin-left: 30px; margin-top: 30px;">Balanço de vendas de produtos no período</span>
+                <hr>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-upload" style="margin-right: 20px;"></i><strong>Produtos mais vendidos</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Produto</span></p>
+                                        </div>
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Valor total</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia Mango Tango Ice 50g</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div id="chart1"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-upload" style="margin-right: 20px;"></i><strong>Marcas mais vendidas</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Marca</span></p>
+                                        </div>
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Valor total</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Adalia</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Gold</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Mazzaia</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Mizo</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Tangiers</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">R$150,00</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div id="chart2"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="vertical-align: middle;"><i class="glyphicon glyphicon-upload" style="margin-right: 20px;"></i><strong>Grupos mais vendidos</strong></div>
+                                <div class="panel-body" style="font-family: Arial, Helvetica, sans-serif; cursor: default;">
+                                    <div class="row">
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Grupos</span></p>
+                                        </div>
+                                        <div class="col-sm-6" style="padding-bottom: 7px;">
+                                            <p><span style="font-weight: bold; border-bottom: 1px solid #e5e5e5; padding-bottom: 5px; padding-left: 10px; padding-right: 100px;">Quantidade</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Essência</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">10 <span style="font-size: 11px;">(itens)</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Carvão</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">10 <span style="font-size: 11px;">(itens)</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Fogareiro</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">10 <span style="font-size: 11px;">(itens)</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Mangueira</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">10 <span style="font-size: 11px;">(itens)</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">Vaso</span></p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p><span style="padding-left: 10px;">10 <span style="font-size: 11px;">(itens)</span></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div id="chart3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        DF Solutions
+    </footer>
+
+</body>
+
+</html>

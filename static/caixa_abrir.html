@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Conceito Tabacaria</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        if (typeof module === 'object') { window.module = module; module = undefined; }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="test.js"></script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand logo" href="#"><img src="https://image.ibb.co/dgErt5/taba.jpg" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html">Balanço</a></li>
+                    <li class="active"><a href="caixa.html">Caixa</a></li>
+                    <li><a href="estoque.html">Estoque</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav">
+                <ul>
+                    <li class="active"><a href="caixa.html">Caixa</a></li>
+                    <li><a href="consulta.html">Consulta</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-11 text-left">
+                <h2><i class="fa fa-shopping-basket"></i> Abrir caixa</h2>
+                <span style="font-family: Arial, Helvetica, sans-serif; cursor: default;margin-left: 30px; margin-top: 30px;">Preencha o troco disponível no caixa para abrí-lo</span>
+                <hr>
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="row input-type">
+                            <div class="col-sm-12 footer">
+                                <p style="color:#555; margin-bottom: 2px"><i class="fa fa-money" style="padding-right: 7px;"></i>Troco inicial:</p>
+                                <input type="text" class="input" value="R$0,00" style="height: 30px;" />
+                                <button type="button" class="btn btn-danger" onclick="location.href='caixa.html'"><i class="glyphicon glyphicon-ok"></i> Abrir caixa</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container-fluid text-center">
+        DF Solutions
+    </footer>
+    <script>
+        document.getElementById("barras").focus();
+    </script>
+</body>
+
+</html>
