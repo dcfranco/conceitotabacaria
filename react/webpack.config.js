@@ -3,7 +3,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './app/index.js',
+    entry: './app/index.jsx',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -15,12 +15,13 @@ module.exports = {
     plugins: [
         new ExtractTextPlugin('app.css'),
         new HtmlWebpackPlugin({
-            title: "Conceito Tabacaria"
+            template: __dirname + '/build/index.html',
+            filename: 'index.html'
         })
     ],
     module: {
         loaders: [{
-            test: /\.(js|jsx)?$/,
+            test: /.jsx?$/,
             loader: 'babel-loader',
             exclude: '/node_modules/',
             query: {
