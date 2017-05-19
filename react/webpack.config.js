@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './app/index.js',
@@ -12,7 +13,10 @@ module.exports = {
         contentBase: './public'
     },
     plugins: [
-        new ExtractTextPlugin('app.css')
+        new ExtractTextPlugin('app.css'),
+        new HtmlWebpackPlugin({
+            title: "Conceito Tabacaria"
+        })
     ],
     module: {
         loaders: [{

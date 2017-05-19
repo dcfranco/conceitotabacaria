@@ -4,7 +4,8 @@
   "description": "Software para controle de tabacaria",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress --color --inline --hot"
+    "dev": "webpack-dev-server --progress --color --inline --hot",
+    "build": "node_modules\\.bin\\webpack --progress --profile --colors"
   },
   "author": "Daniel Franco",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "babel-preset-react": "^6.22.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.28.0",
     "react": "^15.4.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.14.0",
