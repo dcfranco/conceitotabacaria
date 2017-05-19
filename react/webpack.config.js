@@ -19,6 +19,9 @@ module.exports = {
             filename: 'index.html'
         })
     ],
+    resolve: {
+        extensions: ['', '.js', '.jsx']
+    },
     module: {
         loaders: [{
             test: /.jsx?$/,

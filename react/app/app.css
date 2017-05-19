@@ -1,0 +1,359 @@
+ /* Remove the navbar's default margin-bottom and rounded borders */
+
+ h2 {
+     font-family: 'Open Sans', sans-serif;
+     margin-left: 10px;
+ }
+ 
+ *:focus {
+     outline: none !important;
+ }
+ 
+ .navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+     background-color: #333335;
+ }
+ 
+ .navbar img {
+     width: inherit;
+     height: inherit;
+ }
+ 
+ .navbar-brand {
+     padding: 0px 10px 10px;
+ }
+ /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+ 
+ .row.content {
+     height: 100%;
+     width: 100%;
+     position: fixed;
+ }
+ 
+ .scroll {
+     overflow: auto;
+     max-height: 88%;
+ }
+ 
+ div.scroll2 {
+     overflow: auto;
+     height: 410px !important;
+ }
+ 
+ div.scrollModal {
+     overflow: auto;
+     height: 300px !important;
+ }
+ 
+ .scrollModal::-webkit-scrollbar-track, .scroll2::-webkit-scrollbar-track, .scroll::-webkit-scrollbar-track {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+     background-color: #F5F5F5;
+ }
+ 
+ .scroll::-webkit-scrollbar {
+     width: 9px;
+     background-color: #F5F5F5;
+ }
+ 
+ .scrollModal::-webkit-scrollbar, .scroll2::-webkit-scrollbar {
+     width: 5px;
+     background-color: #F5F5F5;
+ }
+ 
+ .scrollModal::-webkit-scrollbar-thumb, .scroll2::-webkit-scrollbar-thumb, .scroll::-webkit-scrollbar-thumb {
+     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+     background-color: #555;
+ }
+ /* Set gray background color and 100% height */
+ 
+ .table-products tbody tr:hover {
+     background-color: #F1F1F1;
+ }
+ 
+ .table-carrinho {
+     font-size: 12px;
+     font-family: 'Open Sans', sans-serif;
+     color: #333335;
+ }
+ 
+ .table-products tbody tr.selected {
+     background-color: #F1F1F1;
+ }
+ 
+ .table-products tbody tr:hover td:first-child, .table-products tbody tr.selected td:first-child, .table-products tbody tr:hover td:nth-child(2), .table-products tbody tr.selected td:nth-child(2) {
+     font-weight: bold;
+ }
+ 
+ .sidenav {
+     padding-left: 0;
+     padding-right: 0;
+     background-color: #f1f1f1;
+     height: 100%;
+     text-align: left;
+ }
+ 
+ .item {
+     border-style: solid;
+     border-width: 2px;
+     border-color: #F1F1F1;
+     height: 390px;
+     width: 230px;
+ }
+ 
+ table .input {
+     width: 60px;
+     background-color: #f6f5f5;
+     font-family: Roboto, sans-serif;
+     font-weight: 500;
+     font-size: 11px;
+     color: #666;
+     border-radius: 4px;
+     -webkit-transition: all 0.30s;
+     border: 1px solid #555;
+ }
+ 
+ .item .input {
+     width: 95px;
+     padding: 05px 05px;
+     margin: 0 3px 10px;
+     background-color: #f6f5f5;
+     font-family: Roboto, sans-serif;
+     font-weight: 500;
+     font-size: 16px;
+     color: #666;
+     border-radius: 4px;
+     -webkit-transition: all 0.30s;
+     box-shadow: 0 0 5px rgba(0, 5, 5, 5);
+     border: 1px solid #555;
+ }
+ 
+ .col_7 {
+     width: 70px;
+ }
+ 
+ .col_9 {
+     width: 90px;
+ }
+ 
+ .col_100p {
+     width: 100%;
+ }
+ 
+.input-type .input {
+     height: 20px;
+     margin: -3px;
+     background-color: #f6f5f5;
+     font-family: Roboto, sans-serif;
+     font-weight: 500;
+     font-size: 12px;
+     color: #666;
+     border-radius: 2px;
+     -webkit-transition: all 0.30s;
+     box-shadow: 0 0 1px rgba(0, 5, 5, 5);
+     border: 1px solid #555;
+     margin-right: 7px;
+     padding-left: 5px;
+     padding-right: 3px
+ }
+ 
+ .item .btn-md {
+     height: 40px;
+     width: 190px;
+     font-weight: bold;
+ }
+ 
+ .finalizar .btn-lg {
+     width: 100%;
+     height: 50px;
+ }
+ 
+ .finalizar {
+     width: 230px;
+ }
+ 
+ .tcenter {
+     text-align: center;
+ }
+ 
+ .item .footer {
+     position: absolute;
+     bottom: 15px;
+     margin-left: 19px;
+ }
+ 
+ .input-group {
+     margin-bottom: 10px;
+ }
+ 
+ div.sidenav ul {
+     list-style-type: none;
+     padding-left: 0;
+ }
+ 
+ div.sidenav li a {
+     text-decoration: none;
+     font-weight: bold;
+     color: #4b4b4b;
+     margin-left: 13px;
+ }
+ 
+ div.sidenav li.active {
+     background-color: #ffffff;
+ }
+ 
+ div.sidenav li a:hover {
+     cursor: default;
+ }
+ 
+ div.sidenav li {
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+ 
+ div.sidenav li:hover {
+     background-color: #b4b4b4;
+ }
+ /* Set black background color, white text and some padding  #f1f1f1*/
+ 
+ .well {
+     margin-right: 10px;
+ }
+ 
+ .content .carrinho {
+     position: absolute;
+     right: 0;
+     margin-top: -50px;
+     padding: 7px 50px 7px 50px;
+     vertical-align: middle;
+ }
+ 
+.content .carrinho .shortcut-info {
+     display: inline-block;
+     height: 13px;
+     width: 13px;
+     border: 1px solid #666;
+     background-color: #666;
+     font-size: 8px;
+     color: #fff;
+     text-align: center;
+     vertical-align: middle;
+ }
+
+ .content .carrinho .radios-info {
+     border-radius: 50%;
+     display: inline-block;
+     height: 15px;
+     width: 15px;
+     border: 1px solid #B22222;
+     background-color: #B22222;
+     font-size: 9px;
+     padding-top: 1px;
+     color: #fff;
+     text-align: center;
+     vertical-align: middle;
+ }
+ 
+ .content .carrinho span {
+     font-size: 30px;
+     font-family: 'Open Sans', sans-serif;
+     color: #b4b4b4;
+ }
+ 
+ .content .carrinho span:hover {
+     font-weight: bold;
+     cursor: default;
+     color: #333335;
+ }
+ 
+ footer {
+     background-color: #333335;
+     color: #f1f1f1;
+     padding: 5px;
+     bottom: 0;
+     position: absolute;
+     width: 100%;
+ }
+ /* On small screens, set height to 'auto' for sidenav and grid */
+ 
+ @media screen and (max-width: 767px) {
+     .sidenav {
+         height: auto;
+         padding: 15px;
+     }
+     .row.content {
+         height: auto;
+     }
+ }
+ 
+ .noselect {
+     -webkit-touch-callout: none;
+     /* iOS Safari */
+     -webkit-user-select: none;
+     /* Safari */
+     -khtml-user-select: none;
+     /* Konqueror HTML */
+     -moz-user-select: none;
+     /* Firefox */
+     -ms-user-select: none;
+     /* Internet Explorer/Edge */
+     user-select: none;
+     /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+ }
+ 
+ label.custom-checkbox:after {
+     content: '';
+     display: table;
+     clear: both;
+ }
+ 
+ label.custom-checkbox {
+     margin-bottom: 0px !important;
+     display: block !important;
+ }
+ 
+ .custom-checkbox .cr {
+     position: relative;
+     display: inline-block;
+     border: 1px solid #a9a9a9;
+     border-radius: .25em;
+     width: 15px;
+     height: 15px;
+     margin-bottom: -3px;
+ }
+ 
+ .custom-checkbox .cr .cr-icon {
+     position: absolute;
+     font-size: .8em;
+     line-height: 0;
+     top: 50%;
+     left: 10%;
+ }
+ 
+ label.custom-checkbox input[type="checkbox"] {
+     display: none;
+ }
+ 
+ label.custom-checkbox input[type="checkbox"] + .cr > .cr-icon {
+     transform: scale(3) rotateZ(-20deg);
+     opacity: 0;
+     transition: all .3s ease-in;
+ }
+ 
+ label.custom-checkbox input[type="checkbox"]:checked + .cr > .cr-icon {
+     transform: scale(1) rotateZ(0deg);
+     opacity: 1;
+ }
+ 
+ label.custom-checkbox input[type="checkbox"]:disabled + .cr {
+     opacity: .5;
+ }
+
+ .direct-arrow {
+     font-size: 30px;     
+ }
+
+ .direct-arrow:hover {
+    color: #d9534f;
+ }
