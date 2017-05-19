@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, NavItem, NavbarHeader } from 'react-bootstrap'
+import { Navbar, Nav, NavItem } from 'react-bootstrap'
 
 export const Navigation = (props) => (
     <Navbar inverse fluid>
