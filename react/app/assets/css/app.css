@@ -1,5 +1,5 @@
  /* Remove the navbar's default margin-bottom and rounded borders */
-
+ 
  h2 {
      font-family: 'Open Sans', sans-serif;
      margin-left: 10px;
@@ -9,6 +9,19 @@
      outline: none !important;
  }
  
+ .panel-body {
+     font-family: Arial, Helvetica, sans-serif;
+     cursor: default;
+ }
+
+ .panel-heading {
+     vertical-align: middle;
+ }
+ 
+.font11 {
+    font-size: 11px;
+}
+
  .navbar {
      margin-bottom: 0;
      border-radius: 0;
@@ -31,6 +44,25 @@
      position: fixed;
  }
  
+ .span-subtitle {
+     font-family: Arial, Helvetica, sans-serif;
+     cursor: default;
+     margin-left: 30px;
+     margin-top: 30px;
+ }
+ 
+ .marginRight10 {
+     margin-right: 10px
+ }
+ 
+ .marginRight20 {
+     margin-right: 20px
+ }
+ 
+.marginRight30 {
+     margin-right: 30px
+ }
+
  .scroll {
      overflow: auto;
      max-height: 88%;
@@ -140,7 +172,7 @@
      width: 100%;
  }
  
-.input-type .input {
+ .input-type .input {
      height: 20px;
      margin: -3px;
      background-color: #f6f5f5;
@@ -223,12 +255,12 @@
  .content .carrinho {
      position: absolute;
      right: 0;
-     margin-top: -50px;
+     margin-top: -90px;
      padding: 7px 50px 7px 50px;
      vertical-align: middle;
  }
  
-.content .carrinho .shortcut-info {
+ .content .carrinho .shortcut-info {
      display: inline-block;
      height: 13px;
      width: 13px;
@@ -239,7 +271,7 @@
      text-align: center;
      vertical-align: middle;
  }
-
+ 
  .content .carrinho .radios-info {
      border-radius: 50%;
      display: inline-block;
@@ -349,11 +381,11 @@
  label.custom-checkbox input[type="checkbox"]:disabled + .cr {
      opacity: .5;
  }
-
+ 
  .direct-arrow {
-     font-size: 30px;     
+     font-size: 30px;
  }
-
+ 
  .direct-arrow:hover {
-    color: #d9534f;
+     color: #d9534f;
  }
