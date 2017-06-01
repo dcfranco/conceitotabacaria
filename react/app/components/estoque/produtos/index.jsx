@@ -3,16 +3,20 @@ import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelF
 import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
 import { LocalizadorProduto } from '../../localizadores/Produto'
 import { ModalProdutoComposto } from './ProdutoComposto'
+import { ModalProdutoLote } from './ProdutoLote'
 
 export class Produtos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalProdutoComposto: false
+            modalProdutoComposto: false,
+            modalProdutoLote: false
         }
 
         this.openModalProdutoComposto = this.openModalProdutoComposto.bind(this);
         this.closeModalProdutoComposto = this.closeModalProdutoComposto.bind(this);
+        this.openModalProdutoLote = this.openModalProdutoLote.bind(this);
+        this.closeModalProdutoLote = this.closeModalProdutoLote.bind(this);
     }
 
     openModalProdutoComposto(){
@@ -22,13 +26,20 @@ export class Produtos extends Component {
         this.setState({modalProdutoComposto: false});
     }
 
+    openModalProdutoLote(){
+        this.setState({modalProdutoLote: true});
+    }
+    closeModalProdutoLote(){
+        this.setState({modalProdutoLote: false});
+    }
+
     render() {
         return (
             <Page size="11">
                 <PageHeader icon="fa fa-shopping-basket" title="Estoque - Produtos" description="Área para criar, alterar ou remover produtos" />
                 <PageHeaderIcons>
                     <HeaderIcon icon="fa fa-clone" hint="Criar produto composto" onClick={() => this.openModalProdutoComposto()} />
-                    <HeaderIcon icon="fa fa-database" hint="Adicionar lote do produto ao estoque" />
+                    <HeaderIcon icon="fa fa-database" hint="Adicionar lote do produto ao estoque" onClick={() => this.openModalProdutoLote()}/>
                     <HeaderIcon icon="glyphicon glyphicon-plus" hint="Criar novo produto" />
                 </PageHeaderIcons>
                 <PageContent>
@@ -98,6 +109,7 @@ export class Produtos extends Component {
                     </PageContainer>
                 </PageContent>
                 <ModalProdutoComposto opened={this.state.modalProdutoComposto} closeModal={this.closeModalProdutoComposto} />
+                <ModalProdutoLote opened={this.state.modalProdutoLote} closeModal={this.closeModalProdutoLote} />
             </Page>
         )
     }

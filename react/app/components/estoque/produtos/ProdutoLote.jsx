@@ -15,7 +15,16 @@ export class ModalProdutoLote extends Component {
         ]
 
         this.handleClick = this.handleClick.bind(this);
-        this.handleClickVoltar = this.handleClickVoltar.bind(this);        
+        this.handleClickVoltar = this.handleClickVoltar.bind(this);
+    }
+
+    handleClickVoltar(){
+        this.setState({step: 0});
+    }
+
+    handleClick(){
+        if(this.state.step == 0) this.setState({step: 1});
+        if(this.state.step == 1) this.props.closeModal();
     }
     
     renderStep0(){
@@ -38,17 +47,45 @@ export class ModalProdutoLote extends Component {
                 </ModalContainer>
                 <ModalContainer size="7" className="input-type">
                     <CustomBodyLine><input type="text" className="input col_9" value="" /></CustomBodyLine>
-                    <CustomBodyLine><input type="text" className="input col_100p" value="" /></CustomBodyLine>
-                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /><LucroPercent value="0" /></CustomBodyLine>
+                    <CustomBodyLine smallDescription="itens"><input type="text" className="input col_7" value="" /></CustomBodyLine>
                     <hr />
-                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /></CustomBodyLine>
-                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /></CustomBodyLine>
+                    <CustomBodyLine><select className="input col_100p">
+                        <option value="">Carvão</option>
+                        <option value="">Essência</option>
+                        <option value="">Mangueira</option>
+                        <option value="">Vaso</option>
+                        <option value="">Stem</option>
+                        <option value="">Roxe</option>
+                    </select></CustomBodyLine>
+                    <CustomBodyLine><select className="input col_100p">
+                        <option value="">Adalia</option>
+                        <option value="">Mazzaia</option>
+                        <option value="">Tangiers</option>
+                        <option value="">Gold</option>
+                        <option value="">Hookah Time</option>
+                    </select></CustomBodyLine>
+                    <CustomBodyLine><select className="input col_100p">
+                        <option value="">Adalia Mango Tango Ice 50g</option>
+                        <option value="">Adalia Maracuja Ice 50g</option>
+                        <option value="">Adalia Mango Tango Ice 50g</option>
+                        <option value="">Adalia Maracuja Ice 50g</option>
+                        <option value="">Tangiers Cane Mint Red 250g</option>
+                        <option value="">Adalia Maracuja Ice 50g</option>
+                    </select></CustomBodyLine>
                     <hr />
+                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
+                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
+                    <hr />
+                    <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /><LucroPercent value="0" /></CustomBodyLine>
                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /><LucroPercent value="0" /></CustomBodyLine>
                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /><LucroPercent value="0" /></CustomBodyLine>
                 </ModalContainer>
             </ModalContent>
         );
+    }
+
+    renderStep1(){
+        return (null);
     }
 
     render(){
