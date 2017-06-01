@@ -34,7 +34,7 @@ export const PageHeaderIcons = (props) => (
 
 export const HeaderIcon = (props) => (
         <span className="marginRight30">
-            <i className={`${props.icon}`} title={`${props.hint}`}></i>            
+            <i className={`${props.icon}`} title={`${props.hint}`} onClick={props.onClick}></i>            
         </span>
 );
 

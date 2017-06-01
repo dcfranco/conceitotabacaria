@@ -5,7 +5,7 @@ export class LocalizadorProduto extends Component {
         super(props);
     }
 
-    renderMin(){
+    renderSmall(){
         return (
             <div>
                 <table className="table" style={{marginBottom: '-1px'}}>
@@ -80,7 +80,7 @@ export class LocalizadorProduto extends Component {
 
     render(){
         return (
-            <div className={`col-sm-${this.props.size}`}>
+            <div className={`col-sm-${this.props.size}`} style={this.props.style}>
                 <div className="row">
                     <div className="col-sm-12">
                         <div className="input-group">
@@ -92,7 +92,7 @@ export class LocalizadorProduto extends Component {
                 <div className="row">
                     <div className="col-sm-12">
                         {this.props.mode == 'full' && this.renderFull()}
-                        {this.props.mode == 'min' && this.renderMin()}
+                        {this.props.mode == 'small' && this.renderSmall()}
                     </div>
                 </div>
             </div>
