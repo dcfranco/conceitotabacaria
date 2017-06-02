@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine, TableFooter } from '../template/Table'
 
 export class LocalizadorProduto extends Component {
     constructor(props){
@@ -7,74 +8,58 @@ export class LocalizadorProduto extends Component {
 
     renderSmall(){
         return (
-            <div>
-                <table className="table" style={{marginBottom: '-1px'}}>
-                    <thead>
-                        <tr>
-                            <th style={{width:'20%'}}>Código</th>
-                            <th style={{width:'60%'}}>Descrição</th>
-                            <th style={{width:'20%'}}>Preço</th>
-                        </tr>
-                    </thead>
-                </table>
-                <div className="scroll2">
-                    <table className="table table-products">
-                        <tbody>
-                            <tr className="selected">
-                                <td style={{width:'20%'}}>180121651561</td>
-                                <td style={{width:'60%'}}>Mazzaia Menta</td>
-                                <td style={{width:'20%'}}>R$15,00</td>
-                            </tr>
-                            <tr>
-                                <td style={{width:'20%'}}>180121651561</td>
-                                <td style={{width:'60%'}}>Mazzaia Menta</td>
-                                <td style={{width:'20%'}}>R$15,00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <Table>
+                <TableHeader>
+                    <TableColHeader width='20%'>Código</TableColHeader>
+                    <TableColHeader width='60%'>Descrição</TableColHeader>
+                    <TableColHeader width='20%'>Preço</TableColHeader>
+                </TableHeader>
+                <TableBody>
+                    <TableLine selected={true}>
+                        <TableCol width='20%'>180121651561</TableCol>
+                        <TableCol width='60%'>Mazzaia Menta</TableCol>
+                        <TableCol width='20%'>R$15,00</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='20%'>180121651561</TableCol>
+                        <TableCol width='60%'>Mazzaia Menta</TableCol>
+                        <TableCol width='20%'>R$15,00</TableCol>
+                    </TableLine>
+                </TableBody>
+            </Table>
         )
     }
 
     renderFull(){
         return (
-            <div>
-                <table className="table" style={{ marginBottom: '-1px'}}>
-                    <thead>
-                        <tr>
-                            <th style={{width:'20%'}}>Código</th>
-                            <th style={{width:'60%'}}>Descrição</th>
-                            <th style={{width:'15%'}}>Estoque</th>
-                            <th style={{width:'15%'}}>Preço</th>
-                        </tr>
-                    </thead>
-                </table>
-                <div className="scroll2">
-                    <table className="table table-products">
-                        <tbody>
-                            <tr className="selected">
-                                <td style={{width:'20%'}}>180121651561</td>
-                                <td style={{width:'60%'}}>Mazzaia Menta</td>
-                                <td style={{width:'15%', textAlign: 'center'}}>15</td>
-                                <td style={{width:'15%'}}>R$15,00</td>
-                            </tr>
-                            <tr>
-                                <td style={{width:'20%'}}>180121651561</td>
-                                <td style={{width:'60%'}}>Mazzaia Menta</td>
-                                <td style={{width:'15%', textAlign: 'center'}}>15</td>
-                                <td style={{width:'15%'}}>R$15,00</td>
-                            </tr>
-                            <tr>
-                                <td style={{width:'20%'}}>180121651561</td>
-                                <td style={{width:'60%'}}>Mazzaia Menta</td>
-                                <td style={{width:'15%', textAlign: 'center'}}>15</td>
-                                <td style={{width:'15%'}}>R$15,00</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <Table>
+                <TableHeader>
+                    <TableColHeader width='20%'>Código</TableColHeader>
+                    <TableColHeader width='60%'>Descrição</TableColHeader>
+                    <TableColHeader width='15%'>Estoque</TableColHeader>
+                    <TableColHeader width='15%'>Preço</TableColHeader>
+                </TableHeader>
+                <TableBody>
+                    <TableLine selected={true}>
+                        <TableCol width='20%'>180121651561</TableCol>
+                        <TableCol width='60%'>Mazzaia Menta</TableCol>
+                        <TableCol width='15%' align='center'>15</TableCol>
+                        <TableCol width='15%'>R$15,00</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='20%'>180121651561</TableCol>
+                        <TableCol width='60%'>Mazzaia Menta</TableCol>
+                        <TableCol width='15%' align='center'>15</TableCol>
+                        <TableCol width='15%'>R$15,00</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='20%'>180121651561</TableCol>
+                        <TableCol width='60%'>Mazzaia Menta</TableCol>
+                        <TableCol width='15%' align='center'>15</TableCol>
+                        <TableCol width='15%'>R$15,00</TableCol>
+                    </TableLine>
+                </TableBody>
+            </Table>
         )
     }
 

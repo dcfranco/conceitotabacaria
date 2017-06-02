@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import { LucroPercent } from '../../template/Page'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
+import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine } from '../../template/Table'
 
 export class ModalProdutoLote extends Component {
     constructor(props) {
@@ -85,7 +86,54 @@ export class ModalProdutoLote extends Component {
     }
 
     renderStep1(){
-        return (null);
+        return (
+            <Table style={{marginLeft: '5px', marginRight: '5px'}}>
+                <TableHeader type="static">
+                    <TableColHeader width='12%'>Código</TableColHeader>
+                    <TableColHeader width='47%'>Descrição</TableColHeader>
+                    <TableColHeader width='16%'>Preço de compra</TableColHeader>
+                    <TableColHeader width='15%'>Preço de venda</TableColHeader>
+                    <TableColHeader width='10%'>Grupo</TableColHeader>
+                </TableHeader>
+                <TableBody type="static" mode="modal">
+                    <TableLine>
+                        <TableCol width='12%'>180121651561</TableCol>
+                        <TableCol width='47%'>Adalia Mazzaia Menta 250g</TableCol>
+                        <TableCol width='16%' align='center'>R$10,00</TableCol>
+                        <TableCol width='15%' align='center'>R$15,00</TableCol>
+                        <TableCol width='10%'>Essência</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='12%'>180121651561</TableCol>
+                        <TableCol width='47%'>Adalia Mazzaia Menta 250g</TableCol>
+                        <TableCol width='16%' align='center'>R$10,00</TableCol>
+                        <TableCol width='15%' align='center'>R$15,00</TableCol>
+                        <TableCol width='10%'>Essência</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='12%'>180121651561</TableCol>
+                        <TableCol width='47%'>Adalia Mazzaia Menta 250g</TableCol>
+                        <TableCol width='16%' align='center'>R$10,00</TableCol>
+                        <TableCol width='15%' align='center'>R$15,00</TableCol>
+                        <TableCol width='10%'>Essência</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='12%'>180121651561</TableCol>
+                        <TableCol width='47%'>Adalia Mazzaia Menta 250g</TableCol>
+                        <TableCol width='16%' align='center'>R$10,00</TableCol>
+                        <TableCol width='15%' align='center'>R$15,00</TableCol>
+                        <TableCol width='10%'>Essência</TableCol>
+                    </TableLine>
+                    <TableLine>
+                        <TableCol width='12%'>180121651561</TableCol>
+                        <TableCol width='47%'>Adalia Mazzaia Menta 250g</TableCol>
+                        <TableCol width='16%' align='center'>R$10,00</TableCol>
+                        <TableCol width='15%' align='center'>R$15,00</TableCol>
+                        <TableCol width='10%'>Essência</TableCol>
+                    </TableLine>
+                </TableBody>
+            </Table>
+        );
     }
 
     render(){

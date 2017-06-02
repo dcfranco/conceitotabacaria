@@ -26,6 +26,7 @@ export const HeaderLine = (props) => (
 export const TextBodyLine = (props) => (
     <p>{props.description} {props.smallDescription && <span className="font11">({props.smallDescription})</span>}</p>
 );
+
 export const CustomBodyLine = (props) => (
     <p>{props.children} {props.smallDescription && <span className="font11">({props.smallDescription})</span>}</p>
 );
