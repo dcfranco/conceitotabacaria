@@ -4,19 +4,28 @@ import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIc
 import { LocalizadorProduto } from '../../localizadores/Produto'
 import { ModalProdutoComposto } from './ProdutoComposto'
 import { ModalProdutoLote } from './ProdutoLote'
+import { ModalProdutoNovo } from './ProdutoNovo'
+import { ModalProdutoEstoque } from './ProdutoEstoque'
 
 export class Produtos extends Component {
     constructor(props) {
         super(props);
         this.state = {
             modalProdutoComposto: false,
-            modalProdutoLote: false
+            modalProdutoLote: false,
+            modalProdutoNovo: false,
+            modalProdutoEstoque: false
         }
 
+        this.handleClick = this.handleClick.bind(this);
         this.openModalProdutoComposto = this.openModalProdutoComposto.bind(this);
         this.closeModalProdutoComposto = this.closeModalProdutoComposto.bind(this);
         this.openModalProdutoLote = this.openModalProdutoLote.bind(this);
         this.closeModalProdutoLote = this.closeModalProdutoLote.bind(this);
+        this.openModalProdutoNovo = this.openModalProdutoNovo.bind(this);
+        this.closeModalProdutoNovo = this.closeModalProdutoNovo.bind(this);
+        this.openModalProdutoEstoque = this.openModalProdutoEstoque.bind(this);
+        this.closeModalProdutoEstoque = this.closeModalProdutoEstoque.bind(this);
     }
 
     openModalProdutoComposto(){
@@ -33,6 +42,24 @@ export class Produtos extends Component {
         this.setState({modalProdutoLote: false});
     }
 
+    openModalProdutoNovo(){
+        this.setState({modalProdutoNovo: true});
+    }
+    closeModalProdutoNovo(){
+        this.setState({modalProdutoNovo: false});
+    }
+
+    openModalProdutoEstoque(){
+        this.setState({modalProdutoEstoque: true});
+    }
+    closeModalProdutoEstoque(){
+        this.setState({modalProdutoEstoque: false});
+    }
+
+    handleClick(){
+
+    }
+
     render() {
         return (
             <Page size="11">
@@ -40,7 +67,7 @@ export class Produtos extends Component {
                 <PageHeaderIcons>
                     <HeaderIcon icon="fa fa-clone" hint="Criar produto composto" onClick={() => this.openModalProdutoComposto()} />
                     <HeaderIcon icon="fa fa-database" hint="Adicionar lote do produto ao estoque" onClick={() => this.openModalProdutoLote()}/>
-                    <HeaderIcon icon="glyphicon glyphicon-plus" hint="Criar novo produto" />
+                    <HeaderIcon icon="glyphicon glyphicon-plus" hint="Criar novo produto" onClick={() => this.openModalProdutoNovo()} />
                 </PageHeaderIcons>
                 <PageContent>
                     <LocalizadorProduto size="6" mode="full" />
@@ -99,10 +126,10 @@ export class Produtos extends Component {
                             </PanelContent>
                             <PanelFooter>
                                 <PanelContainer size="6" align="left">
-                                    <button type="button" className="btn btn-link" style={{ width: '200px' }}>Adicionar produto ao estoque</button>
+                                    <button type="button" className="btn btn-link" style={{ width: '200px' }} onClick={() => this.openModalProdutoEstoque()}>Adicionar produto ao estoque</button>
                                 </PanelContainer>
                                 <PanelContainer size="6" align="right">
-                                    <button type="button" className="btn btn-danger" style={{ width: '200px' }}>Salvar</button>
+                                    <button type="button" className="btn btn-danger" style={{ width: '200px' }} onClick={() => this.handleClick()}>Salvar</button>
                                 </PanelContainer>
                             </PanelFooter>
                         </Panel>
@@ -110,6 +137,8 @@ export class Produtos extends Component {
                 </PageContent>
                 <ModalProdutoComposto opened={this.state.modalProdutoComposto} closeModal={this.closeModalProdutoComposto} />
                 <ModalProdutoLote opened={this.state.modalProdutoLote} closeModal={this.closeModalProdutoLote} />
+                <ModalProdutoNovo opened={this.state.modalProdutoNovo} closeModal={this.closeModalProdutoNovo} openModalProdutoEstoque={this.openModalProdutoEstoque} />
+                <ModalProdutoEstoque opened={this.state.modalProdutoEstoque} closeModal={this.closeModalProdutoEstoque} />
             </Page>
         )
     }
