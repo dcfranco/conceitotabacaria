@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { LucroPercent } from '../../template/Page'
 import { ListaGrupos } from '../../localizadores/Grupos'
 import { ListaMarcas } from '../../localizadores/Marcas'
+import { ListaProdutos } from '../../localizadores/Produto'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine } from '../../template/Table'
 
@@ -54,14 +55,7 @@ export class ModalProdutoLote extends Component {
                     <hr />
                     <CustomBodyLine><ListaGrupos /></CustomBodyLine>
                     <CustomBodyLine><ListaMarcas /></CustomBodyLine>
-                    <CustomBodyLine><select className="input col_100p">
-                        <option value="">Adalia Mango Tango Ice 50g</option>
-                        <option value="">Adalia Maracuja Ice 50g</option>
-                        <option value="">Adalia Mango Tango Ice 50g</option>
-                        <option value="">Adalia Maracuja Ice 50g</option>
-                        <option value="">Tangiers Cane Mint Red 250g</option>
-                        <option value="">Adalia Maracuja Ice 50g</option>
-                    </select></CustomBodyLine>
+                    <CustomBodyLine><ListaProdutos /></CustomBodyLine>
                     <hr />
                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>

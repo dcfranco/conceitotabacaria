@@ -84,3 +84,25 @@ export class LocalizadorProduto extends Component {
         );
     }
 }
+
+export class ListaProdutos extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            list: [
+                {value: 0, caption: 'Adalia Mango Tango Ice 50g'},
+                {value: 1, caption: 'Adalia Mango Tango Ice 50g'},
+                {value: 2, caption: 'Adalia Mango Tango Ice 50g'},
+                {value: 3, caption: 'Adalia Mango Tango Ice 50g'}
+            ]
+        }
+    }
+
+    render(){
+        return (
+            <select className="input col_100p" defaultValue={this.props.selectedIndex || 0}>
+                {this.state.list.map(item => (<option key={item.value} value={item.value}>{item.caption}</option>))}
+            </select>
+        )
+    }
+}

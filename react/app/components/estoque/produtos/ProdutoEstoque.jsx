@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
+import { ListaProdutos } from '../../localizadores/Produto'
 import { LucroPercent } from '../../template/Page'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 
@@ -39,14 +40,7 @@ export class ModalProdutoEstoque extends Component {
                         <ModalContainer size="7" className="input-type">
                             <CustomBodyLine><input type="text" className="input col_9" value="" /></CustomBodyLine>
                             <hr />
-                            <CustomBodyLine><select className="input col_100p" disabled>
-                                <option value="">Adalia Mango Tango Ice 50g</option>
-                                <option value="">Adalia Maracuja Ice 50g</option>
-                                <option value="">Adalia Mango Tango Ice 50g</option>
-                                <option value="">Adalia Maracuja Ice 50g</option>
-                                <option value="">Tangiers Cane Mint Red 250g</option>
-                                <option value="">Adalia Maracuja Ice 50g</option>
-                            </select></CustomBodyLine>
+                            <CustomBodyLine><ListaProdutos /></CustomBodyLine>
                             <hr />
                             <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
                             <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
