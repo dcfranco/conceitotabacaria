@@ -6,6 +6,8 @@ import { ModalProdutoComposto } from './ProdutoComposto'
 import { ModalProdutoLote } from './ProdutoLote'
 import { ModalProdutoNovo } from './ProdutoNovo'
 import { ModalProdutoEstoque } from './ProdutoEstoque'
+import { ListaGrupos } from '../../localizadores/Grupos'
+import { ListaMarcas } from '../../localizadores/Marcas'
 
 export class Produtos extends Component {
     constructor(props) {
@@ -104,21 +106,8 @@ export class Produtos extends Component {
                                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
                                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" disabled /><LucroPercent value={0} /></CustomBodyLine>
                                     <hr />
-                                    <CustomBodyLine><select className="input col_100p">
-                                        <option value="">Carvão</option>
-                                        <option value="">Essência</option>
-                                        <option value="">Mangueira</option>
-                                        <option value="">Vaso</option>
-                                        <option value="">Stem</option>
-                                        <option value="">Roxe</option>
-                                    </select></CustomBodyLine>
-                                    <CustomBodyLine><select className="input col_100p">
-                                        <option value="">Adalia</option>
-                                        <option value="">Mazzaia</option>
-                                        <option value="">Tangiers</option>
-                                        <option value="">Gold</option>
-                                        <option value="">Hookah Time</option>
-                                    </select></CustomBodyLine>
+                                    <CustomBodyLine><ListaGrupos /></CustomBodyLine>
+                                    <CustomBodyLine><ListaMarcas /></CustomBodyLine>
                                     <hr />
                                     <CustomBodyLine smallDescription="unidades"><input type="text" className="input col_7" value="10" disabled /></CustomBodyLine>
                                     <CustomBodyLine><input type="text" className="input col_10" value="" disabled /></CustomBodyLine>

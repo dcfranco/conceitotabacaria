@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
+import { ListaGrupos } from '../../localizadores/Grupos'
+import { ListaMarcas } from '../../localizadores/Marcas'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 
 export class ModalProdutoNovo extends Component {
@@ -46,21 +48,8 @@ export class ModalProdutoNovo extends Component {
                                 <option value="">Itens</option>
                             </select></CustomBodyLine>
                             <hr />
-                            <CustomBodyLine><select className="input col_100p">
-                                <option value="">Carvão</option>
-                                <option value="">Essência</option>
-                                <option value="">Mangueira</option>
-                                <option value="">Vaso</option>
-                                <option value="">Stem</option>
-                                <option value="">Roxe</option>
-                            </select></CustomBodyLine>
-                            <CustomBodyLine><select className="input col_100p">
-                                <option value="">Adalia</option>
-                                <option value="">Mazzaia</option>
-                                <option value="">Tangiers</option>
-                                <option value="">Gold</option>
-                                <option value="">Hookah Time</option>
-                            </select></CustomBodyLine>
+                            <CustomBodyLine><ListaGrupos /></CustomBodyLine>
+                            <CustomBodyLine><ListaMarcas /></CustomBodyLine>
                         </ModalContainer>
                     </ModalContent>
                 </Modal.Body>

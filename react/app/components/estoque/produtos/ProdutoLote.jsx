@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import { LucroPercent } from '../../template/Page'
+import { ListaGrupos } from '../../localizadores/Grupos'
+import { ListaMarcas } from '../../localizadores/Marcas'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine } from '../../template/Table'
 
@@ -50,21 +52,8 @@ export class ModalProdutoLote extends Component {
                     <CustomBodyLine><input type="text" className="input col_9" value="" /></CustomBodyLine>
                     <CustomBodyLine smallDescription="itens"><input type="text" className="input col_7" value="" /></CustomBodyLine>
                     <hr />
-                    <CustomBodyLine><select className="input col_100p">
-                        <option value="">Carvão</option>
-                        <option value="">Essência</option>
-                        <option value="">Mangueira</option>
-                        <option value="">Vaso</option>
-                        <option value="">Stem</option>
-                        <option value="">Roxe</option>
-                    </select></CustomBodyLine>
-                    <CustomBodyLine><select className="input col_100p">
-                        <option value="">Adalia</option>
-                        <option value="">Mazzaia</option>
-                        <option value="">Tangiers</option>
-                        <option value="">Gold</option>
-                        <option value="">Hookah Time</option>
-                    </select></CustomBodyLine>
+                    <CustomBodyLine><ListaGrupos /></CustomBodyLine>
+                    <CustomBodyLine><ListaMarcas /></CustomBodyLine>
                     <CustomBodyLine><select className="input col_100p">
                         <option value="">Adalia Mango Tango Ice 50g</option>
                         <option value="">Adalia Maracuja Ice 50g</option>

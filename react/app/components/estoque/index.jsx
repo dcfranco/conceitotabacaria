@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 import EstoqueMenu from './EstoqueMenu'
 import Principal from './principal'
 import {Produtos} from './produtos'
-import Marcas from './marcas'
-import Grupos from './grupos'
+import {Marcas} from './marcas'
+import {Grupos} from './grupos'
 
 export class Estoque extends Component {
     constructor(props){
