@@ -1,4 +1,5 @@
 import React from 'react'
+import { LinkNav } from './LinkNav'
 
 export const Navigation = (props) => (
     <nav className="navbar navbar-inverse">
@@ -8,9 +9,9 @@ export const Navigation = (props) => (
             </div>
             <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
-                    <li className="active"><a href="index.html">Balanço</a></li>
-                    <li><a href="caixa.html">Caixa</a></li>
-                    <li><a href="estoque.html">Estoque</a></li>
+                    <LinkNav to='/balanco' router={props.router}>Balanço</LinkNav>
+                    <LinkNav to='/caixa' router={props.router}>Caixa</LinkNav>
+                    <LinkNav to='/estoque' router={props.router}>Estoque</LinkNav>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                     <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Sair</a></li>

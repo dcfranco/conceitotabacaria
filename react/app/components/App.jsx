@@ -6,8 +6,8 @@ import {Footer} from './footer/Footer'
 
 export const App = (props) => (
     <div>
-        <Navigation />
-        <Estoque />
+        <Navigation router={props.router} />
+        {props.children}
         <Footer />
     </div>
 );
