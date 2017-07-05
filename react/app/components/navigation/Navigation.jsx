@@ -14,7 +14,7 @@ export const Navigation = (props) => (
                     <LinkNav to='/estoque' router={props.router}>Estoque</LinkNav>
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
-                    <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Sair</a></li>
+                    <li><a href="#" onClick={() => props.exit()}><span className="glyphicon glyphicon-log-in"></span> Sair</a></li>
                 </ul>
             </div>
         </div>

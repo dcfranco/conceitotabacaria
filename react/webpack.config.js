@@ -3,7 +3,9 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './app/index.jsx',
+    entry: ['babel-polyfill', './app/index.jsx'],
+    target: 'electron-main',
+    devtool: 'source-map',
     output: {
         path: __dirname + '/public',
         filename: './bundle.js'
@@ -31,8 +33,8 @@ module.exports = {
             loader: 'babel-loader',
             exclude: '/node_modules/',
             query: {
-                presets: ['es2015', 'react'],
-                plugins: ['transform-object-rest-spread']
+                presets: ['es2015', 'react', 'es2017'],
+                plugins: ['transform-object-rest-spread', 'transform-async-to-generator']
             },
         },{
             test: /\.css$/,
