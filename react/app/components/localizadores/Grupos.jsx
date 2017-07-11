@@ -1,9 +1,19 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine, TableFooter } from '../template/Table'
 
-export class LocalizadorGrupos extends Component {
+import GruposService from '../service/GruposService'
+import * as GruposActions from '../actions/GruposActions'
+
+class LocalizadorGrupos extends Component {
     constructor(props) {
         super(props);
+    }
+
+    async componentWillMount(){
+        let grupos = await GruposService.getGrupos();
+        this.props.updateGrupos(grupos);
     }
 
     render() {
@@ -28,27 +38,17 @@ export class LocalizadorGrupos extends Component {
                                 <TableColHeader width='15%'>Estoque</TableColHeader>
                             </TableHeader>
                             <TableBody>
-                                <TableLine selected={true}>
-                                    <TableCol width='20%'>1</TableCol>
-                                    <TableCol width='40%'>Adalia</TableCol>
-                                    <TableCol width='12%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                </TableLine>
-                                <TableLine>
-                                    <TableCol width='20%'>1</TableCol>
-                                    <TableCol width='40%'>Adalia</TableCol>
-                                    <TableCol width='12%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                </TableLine>
-                                <TableLine>
-                                    <TableCol width='20%'>1</TableCol>
-                                    <TableCol width='40%'>Adalia</TableCol>
-                                    <TableCol width='12%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                    <TableCol width='15%' align='center'>15</TableCol>
-                                </TableLine>
+                                { this.props.grupos.length > 0 ?
+                                    this.props.grupos.map((grupo, index) => (
+                                        <TableLine key={grupo.gru_codigo} selected={this.props.selectedIndex == index} onClick={() => this.props.selectGrupo(index)}>
+                                            <TableCol width='20%'>{grupo.gru_codigo}</TableCol>
+                                            <TableCol width='40%'>{grupo.gru_descricao}</TableCol>
+                                            <TableCol width='12%' align='center'>0</TableCol>
+                                            <TableCol width='15%' align='center'>0</TableCol>
+                                            <TableCol width='15%' align='center'>0</TableCol>
+                                        </TableLine>
+                                    ))
+                                : null }
                             </TableBody>
                         </Table>
                     </div>
@@ -62,20 +62,29 @@ export class ListaGrupos extends Component {
     constructor(props){
         super(props);
         this.state = {
-            list: [
-                {value: 0, caption: 'Carvão'},
-                {value: 1, caption: 'Essência'},
-                {value: 2, caption: 'Mangueira'},
-                {value: 3, caption: 'Vaso'}
-            ]
+            grupos: []
         }
+    }
+
+    async componentWillMount(){
+        let grupos = await GruposService.getGrupos();
+        this.setState({grupos: grupos});
     }
 
     render(){
         return (
             <select className="input col_100p" defaultValue={this.props.selectedIndex || 0}>
-                {this.state.list.map(item => (<option key={item.value} value={item.value}>{item.caption}</option>))}
+                {this.state.grupos.map(item => (<option key={item.gru_codigo} value={item.gru_codigo}>{item.gru_descricao}</option>))}
             </select>
         )
     }
 }
+
+function mapStateToProps(state){
+    console.log(state);
+    return {
+        ...state.GruposReducer
+    }
+}
+
+export default connect(mapStateToProps, bindActionCreators(GruposActions))(LocalizadorGrupos);

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { LocalizadorGrupos } from '../../localizadores/Grupos'
+import LocalizadorGrupos from '../../localizadores/Grupos'
 import { Page, PageHeader, PageContent, PageContainer, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalGrupoNovo } from './GrupoNovo'

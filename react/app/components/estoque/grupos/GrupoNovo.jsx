@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
+import  GrupoService from '../../service/GruposService'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 
 export class ModalGrupoNovo extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            gru_descricao: ''
+        }
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(){
+    async handleClick(){
+        let result = await GrupoService.putGrupo(this.state);
         this.props.closeModal();
     }
 
@@ -25,7 +29,7 @@ export class ModalGrupoNovo extends Component {
                             <HeaderLine icon="fa fa-pencil" description="Descrição:" />
                         </ModalContainer>
                         <ModalContainer size="7" className="input-type">
-                            <CustomBodyLine><input type="text" className="input col_100p" value="" /></CustomBodyLine>
+                            <CustomBodyLine><input type="text" className="input col_100p" onChange={({target}) => this.setState({gru_descricao: target.value})} value={this.state.gru_descricao} autoFocus /></CustomBodyLine>
                         </ModalContainer>
                     </ModalContent>
                 </Modal.Body>

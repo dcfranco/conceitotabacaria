@@ -39,7 +39,7 @@ export const TableCol = (props) => (
 );
 
 export const TableLine = (props) => (
-    <tr className={props.selected ? "selected" : ""}>
+    <tr className={props.selected ? "selected" : ""} onClick={props.onClick}>
         {props.children}
     </tr>
 );

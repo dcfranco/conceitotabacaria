@@ -60,8 +60,11 @@ export default class GruposService {
                     params.push(grupo[key]);
                 }                
             });
+            let date = new Date();
+            params.push(`${date.toLocaleDateString('pt-br')} ${date.toLocaleTimeString('pt-br')}`);
 
-            let query = "insert into tb_grupos (".concat("", fields).concat(") values (", values).concat(")");
+            let query = "insert into tb_grupos (".concat("", fields).concat(", gru_data_cadastro) values (", values).concat(", STR_TO_DATE(?, '%d/%m/%Y %H:%i:%s'))");
+            console.log(query);
             let sucess = await sqlQuery(query, params);
             return sucess;
         } catch(e){
