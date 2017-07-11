@@ -81,10 +81,13 @@ export class ListaGrupos extends Component {
 }
 
 function mapStateToProps(state){
-    console.log(state);
     return {
         ...state.GruposReducer
     }
 }
 
-export default connect(mapStateToProps, bindActionCreators(GruposActions))(LocalizadorGrupos);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(GruposActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocalizadorGrupos);

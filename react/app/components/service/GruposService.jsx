@@ -1,9 +1,13 @@
 import {sqlQuery} from './mysql';
 
 export default class GruposService {
-    static async getGrupos(){
+    static async getGrupos(gru_descricao){
         try {
-            let grupos = await sqlQuery('select * from tb_grupos', []);
+            if(gru_descricao){
+                let grupos = await sqlQuery("select * from tb_grupos where gru_descricao like ?", [gru_descricao]);
+            } else {
+                let grupos = await sqlQuery('select * from tb_grupos', []);
+            }
             return grupos;
         } catch(e){
             console.error(e);
