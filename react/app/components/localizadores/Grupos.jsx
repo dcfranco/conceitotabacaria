@@ -9,11 +9,15 @@ import * as GruposActions from '../actions/GruposActions'
 class LocalizadorGrupos extends Component {
     constructor(props) {
         super(props);
+        this.onGrupoFilter = this.onGrupoFilter.bind(this);
     }
 
     async componentWillMount(){
-        let grupos = await GruposService.getGrupos();
-        this.props.updateGrupos(grupos);
+        this.props.updateGrupos();
+    }
+
+    async onGrupoFilter(grupo){
+        this.props.updateGrupos(grupo);
     }
 
     render() {
@@ -23,7 +27,14 @@ class LocalizadorGrupos extends Component {
                     <div className="col-sm-12">
                         <div className="input-group">
                             <span className="input-group-addon"><i className="glyphicon glyphicon-barcode"></i></span>
-                            <input id="barras" type="text" className="form-control" name="barras" placeholder="Digite o grupo ou bipe um produto" autoFocus />
+                            <input 
+                                id="barras"
+                                type="text"
+                                className="form-control"
+                                name="barras"
+                                placeholder="Digite o grupo ou bipe um produto"
+                                onChange={(e) => this.onGrupoFilter(e.currentTarget.value)}
+                                autoFocus />
                         </div>
                     </div>
                 </div>
@@ -48,7 +59,10 @@ class LocalizadorGrupos extends Component {
                                             <TableCol width='15%' align='center'>0</TableCol>
                                         </TableLine>
                                     ))
-                                : null }
+                                :
+                                <TableLine>
+                                    <TableCol colSpan={5}>Nenhum grupo encontrado</TableCol>
+                                </TableLine> }
                             </TableBody>
                         </Table>
                     </div>
@@ -81,10 +95,13 @@ export class ListaGrupos extends Component {
 }
 
 function mapStateToProps(state){
-    console.log(state);
     return {
         ...state.GruposReducer
     }
 }
 
-export default connect(mapStateToProps, bindActionCreators(GruposActions))(LocalizadorGrupos);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(GruposActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocalizadorGrupos);

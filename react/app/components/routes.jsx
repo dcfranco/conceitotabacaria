@@ -1,16 +1,17 @@
 import React from 'react'
 import thunk from 'redux-thunk';
+import promise from 'redux-promise';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
 import { Router, Route, IndexRedirect, createMemoryHistory, hashHistory } from 'react-router'
 
+import App from './App'
 import {Estoque} from './estoque'
-import {App} from './App'
 import {reducers} from './reducers'
 
 const memoryHistory = createMemoryHistory();
-const store = createStore(reducers, undefined, applyMiddleware(thunk, routerMiddleware(hashHistory)));
+const store = createStore(reducers, undefined, applyMiddleware(thunk, promise, routerMiddleware(hashHistory)));
 
 export const AppMain = (props) => (
     <Provider store={store}>

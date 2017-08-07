@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
-import  GrupoService from '../../service/GruposService'
 import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
 
 export class ModalGrupoNovo extends Component {
@@ -13,13 +12,18 @@ export class ModalGrupoNovo extends Component {
     }
 
     async handleClick(){
-        let result = await GrupoService.putGrupo(this.state);
-        this.props.closeModal();
+        this.props.addGrupo(this.state);
+        this.close();
+    }
+
+    close(){
+        this.setState({ gru_descricao: '' },
+            () => this.props.closeModal());
     }
 
     render(){
         return (
-            <Modal bsSize="lg" show={this.props.opened} onHide={() => this.props.closeModal()}>
+            <Modal bsSize="lg" show={this.props.opened} onHide={() => this.close()}>
                 <Modal.Header closeButton>
                     <ModalHeader icon="fa fa-object-group" title="Criar novo grupo" description="Preencha as informações e salve para criar uma novo grupo" />
                 </Modal.Header>

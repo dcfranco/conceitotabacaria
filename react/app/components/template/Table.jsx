@@ -33,7 +33,7 @@ export const TableBody = (props) => (
 );
 
 export const TableCol = (props) => (
-    <td style={{width: `${props.width?props.width:""}`, textAlign: `${props.align?props.align:""}`}}>
+    <td colSpan={props.colSpan} style={{width: `${props.width?props.width:""}`, textAlign: `${props.align?props.align:""}`}}>
         {props.children}
     </td>
 );

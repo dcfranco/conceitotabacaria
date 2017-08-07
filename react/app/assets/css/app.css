@@ -5,6 +5,12 @@
      margin-left: 10px;
  }
  
+.blockUi {
+    width: 100%;
+    position: fixed;
+    height: 100%;
+}
+
  *:focus {
      outline: none !important;
  }
