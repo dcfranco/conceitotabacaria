@@ -11,7 +11,7 @@ export class ModalGrupoNovo extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    async handleClick(){
+    handleClick(){
         this.props.addGrupo(this.state);
         this.close();
     }

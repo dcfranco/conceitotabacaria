@@ -6,17 +6,26 @@ import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, Cu
 export class ModalMarcaNova extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            mar_descricao: "",
+            mar_grupo: 0
+        }
         this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(){
-        this.props.closeModal();
+        this.props.addMarca(this.state);
+        this.close();
+    }
+
+    close(){
+        this.setState({ mar_descricao: '', mar_grupo: 0 },
+            () => this.props.closeModal());
     }
 
     render(){
         return (
-            <Modal bsSize="lg" show={this.props.opened} onHide={() => this.props.closeModal()}>
+            <Modal bsSize="lg" show={this.props.opened} onHide={() => this.close()}>
                 <Modal.Header closeButton>
                     <ModalHeader icon="fa fa-industry" title="Criar nova marca" description="Preencha as informações e salve para criar uma nova marca" />
                 </Modal.Header>
@@ -27,8 +36,8 @@ export class ModalMarcaNova extends Component {
                             <HeaderLine icon="fa fa-object-group" description="Grupo:" />
                         </ModalContainer>
                         <ModalContainer size="7" className="input-type">
-                            <CustomBodyLine><input type="text" className="input col_100p" value="" /></CustomBodyLine>
-                            <CustomBodyLine><ListaGrupos /></CustomBodyLine>
+                            <CustomBodyLine><input type="text" className="input col_100p" value={this.state.mar_descricao} onChange={(e) => this.setState({ mar_descricao: e.currentTarget.value })} /></CustomBodyLine>
+                            <CustomBodyLine><ListaGrupos onChange={(value) => this.setState({mar_grupo: parseInt(value)})} /></CustomBodyLine>
                         </ModalContainer>
                     </ModalContent>
                 </Modal.Body>

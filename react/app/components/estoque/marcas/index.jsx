@@ -1,16 +1,23 @@
 import React, {Component} from 'react'
-import { LocalizadorMarcas } from '../../localizadores/Marcas'
+import LocalizadorMarcas from '../../localizadores/Marcas'
 import { ListaGrupos } from '../../localizadores/Grupos'
 import { Page, PageHeader, PageContent, PageContainer, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalMarcaNova } from './MarcaNova'
 
-export class Marcas extends Component {
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as MarcasActions from '../../actions/MarcasActions'
+import * as SystemActions from '../../actions/SystemActions'
+
+class Marcas extends Component {
     constructor(props) {
         super(props);
         this.state = {
             modalNovaMarca: false
         }
+        this.addMarca = this.addMarca.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.openModalNovaMarca = this.openModalNovaMarca.bind(this);
         this.closeModalNovaMarca = this.closeModalNovaMarca.bind(this);
     }
@@ -20,6 +27,15 @@ export class Marcas extends Component {
     }
     closeModalNovaMarca(){
         this.setState({modalNovaMarca: false});
+    }
+
+    async handleClick(){
+
+    }
+    async addMarca(marca){
+        this.props.blockUi();
+        await this.props.addMarca(marca);
+        this.props.unblockUi();
     }
 
     render(){
@@ -55,8 +71,20 @@ export class Marcas extends Component {
                         </Panel>
                     </PageContainer>
                 </PageContent>
-                <ModalMarcaNova opened={this.state.modalNovaMarca} closeModal={this.closeModalNovaMarca} />
+                <ModalMarcaNova opened={this.state.modalNovaMarca} closeModal={this.closeModalNovaMarca} addMarca={this.addMarca}/>
             </Page>
         );
     }
 }
+
+function mapStateToProps(state){
+    return {
+        ...state.MarcasReducer
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({...MarcasActions, ...SystemActions}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Marcas);

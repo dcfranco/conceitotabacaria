@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine, TableFooter } from '../template/Table'
 
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import GruposService from '../service/GruposService'
 import * as GruposActions from '../actions/GruposActions'
 
@@ -87,7 +87,8 @@ export class ListaGrupos extends Component {
 
     render(){
         return (
-            <select className="input col_100p" defaultValue={this.props.selectedIndex || 0}>
+            <select className="input col_100p" placeholder="Selecione" defaultValue={this.props.selectedIndex || 0} onChange={(e) => this.props.onChange(e.currentTarget.value)}>
+                <option value={-1}></option>
                 {this.state.grupos.map(item => (<option key={item.gru_codigo} value={item.gru_codigo}>{item.gru_descricao}</option>))}
             </select>
         )

@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import LocalizadorGrupos from '../../localizadores/Grupos'
-import { Page, PageHeader, PageContent, PageContainer, LucroPercent } from '../../template/Page'
+import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalGrupoNovo } from './GrupoNovo'
 
@@ -59,6 +59,9 @@ class Grupos extends Component {
         return (
             <Page size="11">
                 <PageHeader icon="fa fa-object-group" title="Estoque - Grupos" description="Área para criar, alterar ou remover grupos" />
+                <PageHeaderIcons>
+                    <HeaderIcon icon="glyphicon glyphicon-plus" hint="Criar novo grupo" onClick={() => this.openModalNovoGrupo()} />
+                </PageHeaderIcons>
                 <PageContent>
                     <LocalizadorGrupos size="6" />
                     <PageContainer size="6">
@@ -81,14 +84,11 @@ class Grupos extends Component {
                                 </PanelContainer>
                             </PanelContent>
                             <PanelFooter>
-                                <PanelContainer size="3" align="left">
+                                <PanelContainer size="6" align="left">
                                     <button type="button" className="btn btn-link" disabled={!this.state.grupo} style={{ width: '200px' }} onClick={() => this.props.openQuestionModal({
                                         question: "Confirma a exclusão do grupo?",
                                         onYes: () => this.removerGrupo()
                                     })}>Excluir grupo</button>
-                                </PanelContainer>
-                                <PanelContainer size="3" align="left">
-                                    <button type="button" className="btn btn-link" style={{ width: '200px' }} onClick={() => this.openModalNovoGrupo()}>Criar novo grupo</button>
                                 </PanelContainer>
                                 <PanelContainer size="6" align="right">
                                     <button type="button" className="btn btn-danger" disabled={!this.state.grupo} style={{ width: '200px' }} onClick={() => this.handleClick()}>Salvar</button>
