@@ -25,6 +25,7 @@ class Marcas extends Component {
         }
         this.addMarca = this.addMarca.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.removerMarca = this.removerMarca.bind(this);
         this.openModalNovaMarca = this.openModalNovaMarca.bind(this);
         this.closeModalNovaMarca = this.closeModalNovaMarca.bind(this);
     }
@@ -41,7 +42,9 @@ class Marcas extends Component {
     }
 
     async handleClick(){
-
+        this.props.blockUi();
+        await this.props.saveMarca(this.state.marca);
+        this.props.unblockUi();
     }
     async addMarca(marca){
         this.props.blockUi();
@@ -60,6 +63,9 @@ class Marcas extends Component {
         return (
             <Page size="11">
                 <PageHeader icon="fa fa-industry" title="Estoque - Marcas" description="Área para criar, alterar ou remover marcas" />
+                <PageHeaderIcons>
+                    <HeaderIcon icon="glyphicon glyphicon-plus" hint="Criar nova marca" onClick={() => this.openModalNovaMarca()} />
+                </PageHeaderIcons>
                 <PageContent>
                     <LocalizadorMarcas size="6" />
                     <PageContainer size="6">
@@ -77,20 +83,26 @@ class Marcas extends Component {
                                         className="input col_100p"
                                         disabled={!this.state.marca}
                                         value={this.state.marca ? this.state.marca.mar_descricao : ""}
-                                        onChange={(e) => this.setState({ marca: { ...this.state.marca, mar_descricao: e.currentTarget.value }})} /></CustomBodyLine>
+                                        onChange={(e) => this.setState({ marca: { ...this.state.marca, mar_descricao: e.currentTarget.value }})}
+                                    /></CustomBodyLine>
                                     <CustomBodyLine><ListaGrupos
                                         selectedIndex={this.state.marca && this.state.marca.mar_grupo}
-                                        disabled={!this.state.marca} /></CustomBodyLine>
+                                        disabled={!this.state.marca}
+                                        onChange={(value) => this.setState({ marca: { ...this.state.marca, mar_grupo: parseInt(value)}})}
+                                    /></CustomBodyLine>
                                     <hr />
                                     <CustomBodyLine><input type="text" className="input col_10" value={date.toLocaleString()} disabled /></CustomBodyLine>
                                 </PanelContainer>
                             </PanelContent>
                             <PanelFooter>
                                 <PanelContainer size="6" align="left">
-                                    <button type="button" className="btn btn-link" style={{ width: '200px' }} onClick={() => this.openModalNovaMarca()}>Criar nova marca</button>
+                                    <button type="button" className="btn btn-link" disabled={!this.state.marca} style={{ width: '200px' }} onClick={() => this.props.openQuestionModal({
+                                        question: "Confirma a exclusão da marca?",
+                                        onYes: () => this.removerMarca()
+                                    })}>Excluir marca</button>
                                 </PanelContainer>
                                 <PanelContainer size="6" align="right">
-                                    <button type="button" className="btn btn-danger" style={{ width: '200px' }} onClick={() => this.handleClick()}>Salvar</button>
+                                    <button type="button" className="btn btn-danger" disabled={!this.state.marca} style={{ width: '200px' }} onClick={() => this.handleClick()}>Salvar</button>
                                 </PanelContainer>
                             </PanelFooter>
                         </Panel>
