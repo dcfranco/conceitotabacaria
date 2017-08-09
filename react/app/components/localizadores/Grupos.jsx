@@ -78,6 +78,7 @@ export class ListaGrupos extends Component {
         this.state = {
             grupos: []
         }
+        this.onChange = this.onChange.bind(this);
     }
 
     async componentWillMount(){
@@ -85,10 +86,15 @@ export class ListaGrupos extends Component {
         this.setState({grupos: grupos});
     }
 
+    onChange(value){
+        if(value >= 0)
+            this.props.onChange(value);
+    }
+
     render(){
         return (
-            <select className="input col_100p" placeholder="Selecione" defaultValue={this.props.selectedIndex || 0} onChange={(e) => this.props.onChange(e.currentTarget.value)}>
-                <option value={-1}></option>
+            <select disabled={this.props.disabled} className="input col_100p" value={this.props.selectedIndex} onChange={(e) => this.onChange(e.currentTarget.value)}>
+                {!this.props.selectedIndex && <option value={-1}></option>}
                 {this.state.grupos.map(item => (<option key={item.gru_codigo} value={item.gru_codigo}>{item.gru_descricao}</option>))}
             </select>
         )

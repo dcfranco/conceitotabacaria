@@ -14,12 +14,23 @@ class Marcas extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            marca: {
+                mar_codigo: 0,
+                mar_data_alteracao: null,
+                mar_data_cadastro: null,
+                mar_descricao: "",
+                mar_grupo: 0
+            },
             modalNovaMarca: false
         }
         this.addMarca = this.addMarca.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.openModalNovaMarca = this.openModalNovaMarca.bind(this);
         this.closeModalNovaMarca = this.closeModalNovaMarca.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.setState({marca: nextProps.marcas[nextProps.selectedIndex]});
     }
 
     openModalNovaMarca(){
@@ -37,8 +48,15 @@ class Marcas extends Component {
         await this.props.addMarca(marca);
         this.props.unblockUi();
     }
+    async removerMarca(){
+        this.props.blockUi();
+        await this.props.removeMarca(this.state.marca);
+        this.props.unblockUi();
+    }
 
     render(){
+        let date = this.state.marca ? new Date(this.state.marca.mar_data_cadastro) : "";
+
         return (
             <Page size="11">
                 <PageHeader icon="fa fa-industry" title="Estoque - Marcas" description="Área para criar, alterar ou remover marcas" />
@@ -54,10 +72,17 @@ class Marcas extends Component {
                                     <HeaderLine icon="fa fa-calendar" description="Data de cadastro:" />
                                 </PanelContainer>
                                 <PanelContainer size="7" className="input-type">
-                                    <CustomBodyLine><input type="text" className="input col_100p" value="" /></CustomBodyLine>
-                                    <CustomBodyLine><ListaGrupos /></CustomBodyLine>
+                                    <CustomBodyLine><input
+                                        type="text"
+                                        className="input col_100p"
+                                        disabled={!this.state.marca}
+                                        value={this.state.marca ? this.state.marca.mar_descricao : ""}
+                                        onChange={(e) => this.setState({ marca: { ...this.state.marca, mar_descricao: e.currentTarget.value }})} /></CustomBodyLine>
+                                    <CustomBodyLine><ListaGrupos
+                                        selectedIndex={this.state.marca && this.state.marca.mar_grupo}
+                                        disabled={!this.state.marca} /></CustomBodyLine>
                                     <hr />
-                                    <CustomBodyLine><input type="text" className="input col_10" value="" disabled /></CustomBodyLine>
+                                    <CustomBodyLine><input type="text" className="input col_10" value={date.toLocaleString()} disabled /></CustomBodyLine>
                                 </PanelContainer>
                             </PanelContent>
                             <PanelFooter>
