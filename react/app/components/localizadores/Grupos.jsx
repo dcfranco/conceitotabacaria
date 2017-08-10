@@ -93,8 +93,8 @@ export class ListaGrupos extends Component {
 
     render(){
         return (
-            <select disabled={this.props.disabled} className="input col_100p" value={this.props.selectedIndex || ''} onChange={(e) => this.onChange(e.currentTarget.value)}>
-                {!this.props.selectedIndex && <option value={-1}></option>}
+            <select disabled={this.props.disabled} className="input col_100p" value={this.props.selected || ''} onChange={(e) => this.onChange(e.currentTarget.value)}>
+                {!this.props.selected && <option value={-1}></option>}
                 {this.state.grupos.map(item => (<option key={item.gru_codigo} value={item.gru_codigo}>{item.gru_descricao}</option>))}
             </select>
         )

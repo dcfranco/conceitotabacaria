@@ -37,7 +37,7 @@ export class ModalMarcaNova extends Component {
                         </ModalContainer>
                         <ModalContainer size="7" className="input-type">
                             <CustomBodyLine><input type="text" className="input col_100p" value={this.state.mar_descricao} onChange={(e) => this.setState({ mar_descricao: e.currentTarget.value })} /></CustomBodyLine>
-                            <CustomBodyLine><ListaGrupos onChange={(value) => this.setState({mar_grupo: parseInt(value)})} /></CustomBodyLine>
+                            <CustomBodyLine><ListaGrupos selected={this.state.mar_grupo} onChange={(value) => this.setState({mar_grupo: parseInt(value)})} /></CustomBodyLine>
                         </ModalContainer>
                     </ModalContent>
                 </Modal.Body>

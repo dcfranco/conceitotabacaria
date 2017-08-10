@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import LocalizadorMarcas from '../../localizadores/Marcas'
 import { ListaGrupos } from '../../localizadores/Grupos'
-import { Page, PageHeader, PageContent, PageContainer, LucroPercent } from '../../template/Page'
+import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalMarcaNova } from './MarcaNova'
 
@@ -86,7 +86,7 @@ class Marcas extends Component {
                                         onChange={(e) => this.setState({ marca: { ...this.state.marca, mar_descricao: e.currentTarget.value }})}
                                     /></CustomBodyLine>
                                     <CustomBodyLine><ListaGrupos
-                                        selectedIndex={this.state.marca && this.state.marca.mar_grupo}
+                                        selected={this.state.marca && this.state.marca.mar_grupo}
                                         disabled={!this.state.marca}
                                         onChange={(value) => this.setState({ marca: { ...this.state.marca, mar_grupo: parseInt(value)}})}
                                     /></CustomBodyLine>
