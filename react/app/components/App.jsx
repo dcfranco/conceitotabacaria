@@ -6,7 +6,7 @@ import {Navigation} from './navigation/Navigation'
 import {Estoque} from './estoque'
 import {Footer} from './footer/Footer'
 
-import {QuestionModal} from './modals/QuestionModal'
+import MessageModals from './modals/MessageModals'
 
 import GruposService from './service/GruposService'
 
@@ -16,14 +16,20 @@ import * as SystemActions from './actions/SystemActions'
 
 class App extends Component {
     render(){
+        let newChildren = React.Children.map(this.props.children, (child => 
+            React.cloneElement(child, {
+                openModal: this.props.openModal, 
+                closeModal: this.props.closeModal 
+            })
+        ));
+
         return (
             <div>
                 <Navigation exit={this.test} router={this.props.router} />
                 <BlockUi tag="div" blocking={this.props.freezeScreen} className="blockUi">
-                    {this.props.children}
+                    {newChildren}
                 </BlockUi>
                 <Footer />
-                <QuestionModal questionModal={this.props.questionModal} closeQuestionModal={this.props.closeQuestionModal} />
             </div>
         );
     }
@@ -39,4 +45,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(SystemActions, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default MessageModals(connect(mapStateToProps, mapDispatchToProps)(App));

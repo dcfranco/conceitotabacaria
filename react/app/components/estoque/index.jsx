@@ -21,9 +21,9 @@ export class Estoque extends Component {
 
     renderPage(){
         if(this.state.selectedMenu == "principal") return (<Principal />);
-        if(this.state.selectedMenu == "produtos") return (<Produtos />);
-        if(this.state.selectedMenu == "marcas") return(<Marcas />)
-        if(this.state.selectedMenu == "grupos") return (<Grupos />);
+        if(this.state.selectedMenu == "produtos") return (<Produtos  openModal={this.props.openModal} closeModal={this.props.closeModal} />);
+        if(this.state.selectedMenu == "marcas") return(<Marcas openModal={this.props.openModal} closeModal={this.props.closeModal} />)
+        if(this.state.selectedMenu == "grupos") return (<Grupos  openModal={this.props.openModal} closeModal={this.props.closeModal} />);
     }
 
     render(){

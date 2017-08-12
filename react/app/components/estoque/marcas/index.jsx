@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import LocalizadorMarcas from '../../localizadores/Marcas'
 import { ListaGrupos } from '../../localizadores/Grupos'
+import { MODAL_TYPE } from '../../template/Modal'
 import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalMarcaNova } from './MarcaNova'
@@ -96,8 +97,9 @@ class Marcas extends Component {
                             </PanelContent>
                             <PanelFooter>
                                 <PanelContainer size="6" align="left">
-                                    <button type="button" className="btn btn-link" disabled={!this.state.marca} style={{ width: '200px' }} onClick={() => this.props.openQuestionModal({
-                                        question: "Confirma a exclusão da marca?",
+                                    <button type="button" className="btn btn-link" disabled={!this.state.marca} style={{ width: '200px' }} onClick={() => this.props.openModal({
+                                        message: "Confirma a exclusão da marca?",
+                                        type: MODAL_TYPE.QUESTION,
                                         onYes: () => this.removerMarca()
                                     })}>Excluir marca</button>
                                 </PanelContainer>

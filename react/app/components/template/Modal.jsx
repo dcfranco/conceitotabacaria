@@ -1,5 +1,12 @@
 import React from 'react'
 
+export const MODAL_TYPE = {
+    QUESTION:   0,
+    SUCCESS:    1,
+    ALERT:      2,
+    ERROR:      3
+}
+
 export const ModalHeader = (props) => (
     <div>
         <p style={{color: '#555', fontWeight: 'bold', fontSize: '18px'}}><i className={`${props.icon}`}></i> {props.title}</p>

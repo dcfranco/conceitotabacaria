@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import LocalizadorGrupos from '../../localizadores/Grupos'
+import { MODAL_TYPE } from '../../template/Modal'
 import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { ModalGrupoNovo } from './GrupoNovo'
@@ -17,7 +18,8 @@ class Grupos extends Component {
                 gru_codigo: 0,
                 gru_descricao: '',
                 gru_data_cadastro: null,
-                gru_data_alteracao: null
+                gru_data_alteracao: null,
+                gru_qntd_marcas: 0
             },
             modalNovoGrupo: false
         }
@@ -49,9 +51,16 @@ class Grupos extends Component {
         this.props.unblockUi();
     }
     async removerGrupo(){
-        this.props.blockUi();
-        await this.props.removeGrupo(this.state.grupo);
-        this.props.unblockUi();
+        if(this.state.grupo.gru_qntd_marcas > 0){
+            this.props.openModal({
+                message: "Não é possível excluir o grupo pois o mesmo contém marcas cadastradas",
+                type: MODAL_TYPE.ERROR
+            });
+        } else {
+            this.props.blockUi();
+            await this.props.removeGrupo(this.state.grupo);
+            this.props.unblockUi();
+        }
     }
 
     render(){
@@ -85,8 +94,9 @@ class Grupos extends Component {
                             </PanelContent>
                             <PanelFooter>
                                 <PanelContainer size="6" align="left">
-                                    <button type="button" className="btn btn-link" disabled={!this.state.grupo} style={{ width: '200px' }} onClick={() => this.props.openQuestionModal({
-                                        question: "Confirma a exclusão do grupo?",
+                                    <button type="button" className="btn btn-link" disabled={!this.state.grupo} style={{ width: '200px' }} onClick={() => this.props.openModal({
+                                        message: "Confirma a exclusão do grupo?",
+                                        type: MODAL_TYPE.QUESTION,
                                         onYes: () => this.removerGrupo()
                                     })}>Excluir grupo</button>
                                 </PanelContainer>

@@ -54,7 +54,7 @@ class LocalizadorGrupos extends Component {
                                         <TableLine key={grupo.gru_codigo} selected={this.props.selectedIndex == index} onClick={() => this.props.selectGrupo(index)}>
                                             <TableCol width='20%'>{grupo.gru_codigo}</TableCol>
                                             <TableCol width='40%'>{grupo.gru_descricao}</TableCol>
-                                            <TableCol width='12%' align='center'>0</TableCol>
+                                            <TableCol width='10%' align='center'>{grupo.gru_qntd_marcas}</TableCol>
                                             <TableCol width='15%' align='center'>0</TableCol>
                                             <TableCol width='15%' align='center'>0</TableCol>
                                         </TableLine>

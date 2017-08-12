@@ -9,16 +9,3 @@ export function unblockUi(){
         type: 'UNBLOCK_UI'
     }
 }
-
-export function openQuestionModal(options){
-    return {
-        type: 'OPEN_QUESTION_MODAL',
-        options
-    }
-}
-
-export function closeQuestionModal(){
-    return {
-        type: 'CLOSE_QUESTION_MODAL'
-    }
-}

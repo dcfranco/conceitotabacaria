@@ -20,7 +20,6 @@ export default class MarcasService {
                 params.push(where[condicional]);
             });
 
-            debugger;
             let marcas = await sqlQuery(query, params);
             return marcas;
         } catch(e){

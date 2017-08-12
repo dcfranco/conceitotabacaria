@@ -3,7 +3,7 @@ import {sqlQuery} from './mysql';
 export default class GruposService {
     static async getGrupos(like = ''){
         try {
-            let grupos = await sqlQuery('select * from tb_grupos where gru_descricao like ?', [`%${like}%`]);
+            let grupos = await sqlQuery('select a.*, (select count(*) from tb_marcas b where b.mar_grupo = a.gru_codigo) gru_qntd_marcas from tb_grupos a where a.gru_descricao like ?', [`%${like}%`]);
             return grupos;
         } catch(e){
             console.error(e);
@@ -13,7 +13,7 @@ export default class GruposService {
 
     static async getGrupo(gru_codigo){
         try {
-            let grupo = await sqlQuery('select * from tb_grupos where gru_codigo = ?', [gru_codigo]);
+            let grupo = await sqlQuery('select a.*, (select count(*) from tb_marcas b where b.mar_grupo = a.gru_codigo) gru_qntd_marcas from tb_grupos a where a.gru_codigo = ?', [gru_codigo]);
             return grupo;
         } catch(e){
             console.error(e);
@@ -26,7 +26,7 @@ export default class GruposService {
             let query = 'update tb_grupos set';
             let params = [];
             Object.keys(grupo).map((key) => {
-                if(['gru_codigo','gru_data_alteracao','gru_data_cadastro'].indexOf(key) < 0){
+                if(['gru_codigo','gru_data_alteracao','gru_data_cadastro','gru_qntd_marcas'].indexOf(key) < 0){
 	                query = query.concat(" ",`${key} = ?,`);
                     params.push(grupo[key]);
                 }                
