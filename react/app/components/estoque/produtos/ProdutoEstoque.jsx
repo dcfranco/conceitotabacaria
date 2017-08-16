@@ -20,6 +20,16 @@ export class ModalProdutoEstoque extends Component {
         this.handleClickAdicionar = this.handleClickAdicionar.bind(this);
     }
 
+    componentWillReceiveProps(nextProps){
+        if(this.props.produtoCodigo != nextProps.produtoCodigo)
+            this.setState({
+                estoque: {
+                    ...this.state.estoque,
+                    est_produto: nextProps.produtoCodigo
+                }
+            });
+    }
+
     handleClickAdicionar(){
         
     }

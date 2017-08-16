@@ -18,7 +18,24 @@ class Produtos extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            produto: {},
+            produto: {
+                pro_codigo: 0,
+                pro_descricao: "",
+                pro_peso: 0,
+                pro_medida: 1,
+                pro_marca: 0,
+                pro_data_alteracao: null,
+                pro_data_cadastro: null,
+            },
+            estoque: {
+                est_codigo: 0,
+                est_cod_barras: 0,
+                est_preco_compra: 0,
+                est_preco_venda: 0,
+                est_produto: 0,
+                est_data_cadastro: null
+            },
+
             modalProdutoComposto: false,
             modalProdutoLote: false,
             modalProdutoNovo: false,
@@ -36,6 +53,18 @@ class Produtos extends Component {
         this.closeModalProdutoNovo = this.closeModalProdutoNovo.bind(this);
         this.openModalProdutoEstoque = this.openModalProdutoEstoque.bind(this);
         this.closeModalProdutoEstoque = this.closeModalProdutoEstoque.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps){
+        let {produto} = nextProps;
+        let {estoque} = nextProps;
+
+        let produtoState = produto.produtos.filter((produto) => produto.pro_codigo == produto.selected)[0];
+        let estoqueState = estoque.estoques.filter((estoque) => estoque.est_codigo == estoque.selected)[0];
+        this.setState({
+            produto: produtoState,
+            estoque: estoqueState
+        });
     }
 
     openModalProdutoComposto(){
@@ -165,6 +194,7 @@ class Produtos extends Component {
                     closeModal={this.closeModalProdutoEstoque}
                     openMessageModal={this.props.openModal}
                     closeMessageModal={this.props.closeModal}
+                    produtoCodigo={this.state.produto.pro_codigo}
                 />
             </Page>
         )
@@ -173,7 +203,12 @@ class Produtos extends Component {
 
 function mapStateToProps(state){
     return {
-        ...state.ProdutosReducer
+        produto: {
+            ...state.ProdutosReducer
+        },
+        estoque: {
+            ...state.EstoquesReducer
+        }
     }
 }
 

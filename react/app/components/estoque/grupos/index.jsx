@@ -108,7 +108,13 @@ class Grupos extends Component {
                         </Panel>
                     </PageContainer>
                 </PageContent>
-                <ModalGrupoNovo opened={this.state.modalNovoGrupo} closeModal={this.closeModalNovoGrupo} addGrupo={this.addGrupo} />
+                <ModalGrupoNovo
+                    opened={this.state.modalNovoGrupo}
+                    closeModal={this.closeModalNovoGrupo}
+                    addGrupo={this.addGrupo}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
             </Page>
         );
     }

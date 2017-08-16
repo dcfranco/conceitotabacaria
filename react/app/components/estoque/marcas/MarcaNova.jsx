@@ -14,13 +14,28 @@ export class ModalMarcaNova extends Component {
     }
 
     handleClick(){
-        this.props.addMarca(this.state);
-        this.close();
+        this.validateFields().then(() => {
+            this.props.addMarca(this.state);
+            this.close();
+        });
     }
 
     close(){
         this.setState({ mar_descricao: '', mar_grupo: 0 },
             () => this.props.closeModal());
+    }
+
+    validateFields(){
+        return new Promise((resolve, reject) => {
+            let fields = ["mar_descricao", "mar_grupo"].filter((field) => !this.state.produto[field]);
+            if(fields.length > 0)
+                this.props.openMessageModal({
+                    message: "Favor preencher todos os campos!",
+                    type: MODAL_TYPE.ERROR,
+                    onOk: reject
+                });
+            else resolve();
+        });
     }
 
     render(){

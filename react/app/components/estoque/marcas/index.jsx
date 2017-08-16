@@ -111,7 +111,13 @@ class Marcas extends Component {
                         </Panel>
                     </PageContainer>
                 </PageContent>
-                <ModalMarcaNova opened={this.state.modalNovaMarca} closeModal={this.closeModalNovaMarca} addMarca={this.addMarca}/>
+                <ModalMarcaNova
+                    opened={this.state.modalNovaMarca}
+                    closeModal={this.closeModalNovaMarca}
+                    addMarca={this.addMarca}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
             </Page>
         );
     }

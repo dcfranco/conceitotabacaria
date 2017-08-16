@@ -12,13 +12,28 @@ export class ModalGrupoNovo extends Component {
     }
 
     handleClick(){
-        this.props.addGrupo(this.state);
-        this.close();
+        this.validateFields().then(() => {
+            this.props.addGrupo(this.state);
+            this.close();
+        });
     }
 
     close(){
         this.setState({ gru_descricao: '' },
             () => this.props.closeModal());
+    }
+
+    validateFields(){
+        return new Promise((resolve, reject) => {
+            let fields = ["gru_descricao"].filter((field) => !this.state.produto[field]);
+            if(fields.length > 0)
+                this.props.openMessageModal({
+                    message: "Favor preencher todos os campos!",
+                    type: MODAL_TYPE.ERROR,
+                    onOk: reject
+                });
+            else resolve();
+        });
     }
 
     render(){
