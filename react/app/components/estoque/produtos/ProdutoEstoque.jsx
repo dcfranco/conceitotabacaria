@@ -31,7 +31,7 @@ export class ModalProdutoEstoque extends Component {
     }
 
     handleClickAdicionar(){
-        
+        //react-simple-currency
     }
 
     handleClick(){
