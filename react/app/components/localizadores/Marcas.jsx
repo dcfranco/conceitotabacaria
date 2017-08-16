@@ -51,7 +51,7 @@ class LocalizadorMarcas extends Component {
                             <TableBody>
                                 { this.props.marcas.length > 0 ?
                                     this.props.marcas.map((marca, index) => (
-                                        <TableLine key={marca.mar_codigo} selected={this.props.selectedIndex == index} onClick={() => this.props.selectMarca(index)}>
+                                        <TableLine key={marca.mar_codigo} selected={this.props.selected == marca.mar_codigo} onClick={() => this.props.selectMarca(marca.mar_codigo)}>
                                             <TableCol width='20%'>{marca.mar_codigo}</TableCol>
                                             <TableCol width='50%'>{marca.mar_descricao}</TableCol>
                                             <TableCol width='15%' align='center'>0</TableCol>
@@ -78,16 +78,25 @@ export class ListaMarcas extends Component {
         this.state = {
             marcas: []
         }
+        this.onChange = this.onChange.bind(this);
     }
 
-    async componentWillMount(){
-        let marcas = await MarcasService.getMarcas();
-        this.setState({marcas: marcas});
+    async componentWillReceiveProps(nextProps){
+        if(this.props.gruCodigo != nextProps.gruCodigo){
+            let marcas = await MarcasService.getMarcasBy({ mar_grupo: nextProps.gruCodigo });
+            this.setState({marcas}, () => marcas[0] && this.onChange(marcas[0].mar_codigo));
+        }
+    }
+
+    onChange(value){
+        if(value >= 0)
+            this.props.onChange(value);
     }
 
     render(){
         return (
-            <select className="input col_100p" defaultValue={this.props.selectedIndex || 0}>
+            <select disabled={this.props.disabled} className="input col_100p" value={this.props.selected || ''} onChange={(e) => this.onChange(e.currentTarget.value)}>
+                {!this.props.selected && <option value={-1}></option>}
                 {this.state.marcas.map(item => (<option key={item.mar_codigo} value={item.mar_codigo}>{item.mar_descricao}</option>))}
             </select>
         )

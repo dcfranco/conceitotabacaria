@@ -7,7 +7,15 @@ import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, Cu
 export class ModalProdutoEstoque extends Component {
     constructor(props) {
         super(props);
-
+        this.state = {
+            estoque: {
+                est_cod_barras: 0,
+                est_preco_compra: 0,
+                est_preco_venda: 0,
+                est_produto: 0
+            }
+        }
+        
         this.handleClick = this.handleClick.bind(this);
         this.handleClickAdicionar = this.handleClickAdicionar.bind(this);
     }

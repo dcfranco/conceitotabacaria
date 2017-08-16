@@ -1,6 +1,6 @@
 const initialState = {  
     marcas: [],
-    selectedIndex: 0,
+    selected: 0,
 }
 
 export function MarcasReducer(state = initialState, action){
@@ -18,13 +18,13 @@ export function MarcasReducer(state = initialState, action){
         case 'UPDATE_MARCAS':
             return {
                 ...state,
-                selectedIndex: 0,
+                selected: action.marcas[0] && action.marcas[0].mar_codigo,
                 marcas: action.marcas
             }
         case 'SELECT_MARCA':
             return {
                 ...state,
-                selectedIndex: action.index
+                selected: action.codigo
             }
         default:
             return state;

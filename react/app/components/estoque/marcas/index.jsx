@@ -32,7 +32,8 @@ class Marcas extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({marca: nextProps.marcas[nextProps.selectedIndex]});
+        let marca = nextProps.marcas.filter((marca) => marca.mar_codigo == nextProps.selected)[0];
+        this.setState({marca});
     }
 
     openModalNovaMarca(){

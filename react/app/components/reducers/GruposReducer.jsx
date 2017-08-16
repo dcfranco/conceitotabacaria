@@ -1,6 +1,6 @@
 const initialState = {  
     grupos: [],
-    selectedIndex: 0,
+    selected: 0,
 }
 
 export function GruposReducer(state = initialState, action){
@@ -18,13 +18,13 @@ export function GruposReducer(state = initialState, action){
         case 'UPDATE_GRUPOS':
             return {
                 ...state,
-                selectedIndex: 0,
+                selected: action.grupos[0] && action.grupos[0].gru_codigo,
                 grupos: action.grupos
             }
         case 'SELECT_GRUPO':
             return {
                 ...state,
-                selectedIndex: action.index
+                selected: action.codigo
             }
         default:
             return state;

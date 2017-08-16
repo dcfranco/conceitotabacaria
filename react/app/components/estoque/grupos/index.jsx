@@ -31,7 +31,8 @@ class Grupos extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        this.setState({grupo: nextProps.grupos[nextProps.selectedIndex]});
+        let grupo = nextProps.grupos.filter((grupo) => grupo.gru_codigo == nextProps.selected)[0];
+        this.setState({grupo});
     }
 
     openModalNovoGrupo(){

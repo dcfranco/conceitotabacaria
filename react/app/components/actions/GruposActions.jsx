@@ -3,7 +3,8 @@ import GruposService from '../service/GruposService'
 export function addGrupo(grupo){
     return async (dispatch) => {
         let result = await GruposService.putGrupo(grupo);
-        dispatch(updateGrupos());
+        dispatch(updateGrupos()).then(
+            () => dispatch(selectGrupo(result.insertId)))
     }
 }
 
@@ -34,9 +35,9 @@ export function updateGrupos(grupoLike = ''){
     }
 }
 
-export function selectGrupo(index){
+export function selectGrupo(codigo){
     return {
         type: 'SELECT_GRUPO',
-        index
+        codigo
     }
 }

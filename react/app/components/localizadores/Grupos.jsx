@@ -51,7 +51,7 @@ class LocalizadorGrupos extends Component {
                             <TableBody>
                                 { this.props.grupos.length > 0 ?
                                     this.props.grupos.map((grupo, index) => (
-                                        <TableLine key={grupo.gru_codigo} selected={this.props.selectedIndex == index} onClick={() => this.props.selectGrupo(index)}>
+                                        <TableLine key={grupo.gru_codigo} selected={this.props.selected == grupo.gru_codigo} onClick={() => this.props.selectGrupo(grupo.gru_codigo)}>
                                             <TableCol width='20%'>{grupo.gru_codigo}</TableCol>
                                             <TableCol width='40%'>{grupo.gru_descricao}</TableCol>
                                             <TableCol width='10%' align='center'>{grupo.gru_qntd_marcas}</TableCol>

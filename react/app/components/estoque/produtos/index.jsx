@@ -9,17 +9,25 @@ import { ModalProdutoEstoque } from './ProdutoEstoque'
 import { ListaGrupos } from '../../localizadores/Grupos'
 import { ListaMarcas } from '../../localizadores/Marcas'
 
-export class Produtos extends Component {
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as ProdutosActions from '../../actions/ProdutosActions'
+import * as SystemActions from '../../actions/SystemActions'
+
+class Produtos extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            produto: {},
             modalProdutoComposto: false,
             modalProdutoLote: false,
             modalProdutoNovo: false,
             modalProdutoEstoque: false
         }
 
+        this.addProduto = this.addProduto.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.removerProduto = this.removerProduto.bind(this);
         this.openModalProdutoComposto = this.openModalProdutoComposto.bind(this);
         this.closeModalProdutoComposto = this.closeModalProdutoComposto.bind(this);
         this.openModalProdutoLote = this.openModalProdutoLote.bind(this);
@@ -58,7 +66,15 @@ export class Produtos extends Component {
         this.setState({modalProdutoEstoque: false});
     }
 
-    handleClick(){
+    async addProduto(produto){
+        this.props.blockUi();
+        await this.props.addProduto(produto);
+        this.props.unblockUi();
+    }
+    async handleClick(){
+
+    }
+    async removerProduto(){
 
     }
 
@@ -124,11 +140,45 @@ export class Produtos extends Component {
                         </Panel>
                     </PageContainer>
                 </PageContent>
-                <ModalProdutoComposto opened={this.state.modalProdutoComposto} closeModal={this.closeModalProdutoComposto} />
-                <ModalProdutoLote opened={this.state.modalProdutoLote} closeModal={this.closeModalProdutoLote} />
-                <ModalProdutoNovo opened={this.state.modalProdutoNovo} closeModal={this.closeModalProdutoNovo} openModalProdutoEstoque={this.openModalProdutoEstoque} />
-                <ModalProdutoEstoque opened={this.state.modalProdutoEstoque} closeModal={this.closeModalProdutoEstoque} />
+                <ModalProdutoComposto
+                    opened={this.state.modalProdutoComposto}
+                    closeModal={this.closeModalProdutoComposto}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
+                <ModalProdutoLote
+                    opened={this.state.modalProdutoLote}
+                    closeModal={this.closeModalProdutoLote}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
+                <ModalProdutoNovo
+                    opened={this.state.modalProdutoNovo}
+                    closeModal={this.closeModalProdutoNovo}
+                    openModalProdutoEstoque={this.openModalProdutoEstoque}
+                    addProduto={this.addProduto}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
+                <ModalProdutoEstoque
+                    opened={this.state.modalProdutoEstoque}
+                    closeModal={this.closeModalProdutoEstoque}
+                    openMessageModal={this.props.openModal}
+                    closeMessageModal={this.props.closeModal}
+                />
             </Page>
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        ...state.ProdutosReducer
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({...ProdutosActions, ...SystemActions}, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Produtos);

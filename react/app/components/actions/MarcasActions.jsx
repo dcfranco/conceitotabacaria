@@ -3,7 +3,8 @@ import MarcasService from '../service/MarcasService'
 export function addMarca(marca){
     return async (dispatch) => {
         let result = await MarcasService.putMarca(marca);
-        dispatch(updateMarcas());
+        dispatch(updateMarcas()).then(
+            () => dispatch(selectMarca(result.insertId)));
     }
 }
 
@@ -34,9 +35,9 @@ export function updateMarcas(marcaLike = ''){
     }
 }
 
-export function selectMarca(index){
+export function selectMarca(codigo){
     return {
         type: 'SELECT_MARCA',
-        index
+        codigo
     }
 }
