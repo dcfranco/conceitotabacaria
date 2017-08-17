@@ -1,9 +1,22 @@
 import React, {Component} from 'react'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine, TableFooter } from '../template/Table'
 
-export class LocalizadorProduto extends Component {
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import ProdutosService from '../service/ProdutosService'
+import * as ProdutosActions from '../actions/ProdutosActions'
+
+export class LocalizadorProdutos extends Component {
     constructor(props){
         super(props);
+    }
+
+    async componentWillMount(){
+        this.props.updateProdutos();
+    }
+
+    async onProdutoFilter(produto){
+        this.props.updateProdutos(produto);
     }
 
     renderSmall(){
@@ -15,22 +28,28 @@ export class LocalizadorProduto extends Component {
                     <TableColHeader width='20%'>Preço</TableColHeader>
                 </TableHeader>
                 <TableBody>
-                    <TableLine selected={true}>
-                        <TableCol width='20%'>180121651561</TableCol>
-                        <TableCol width='60%'>Mazzaia Menta</TableCol>
-                        <TableCol width='20%'>R$15,00</TableCol>
-                    </TableLine>
-                    <TableLine>
-                        <TableCol width='20%'>180121651561</TableCol>
-                        <TableCol width='60%'>Mazzaia Menta</TableCol>
-                        <TableCol width='20%'>R$15,00</TableCol>
-                    </TableLine>
+                    { this.props.produtos.length > 0 ?
+                        this.props.produtos.map((produto, index) => (
+                            <TableLine key={produto.pro_codigo} selected={this.props.selected == produto.pro_codigo} onClick={() => this.props.selectProduto(produto.pro_codigo)}>
+                                <TableCol width='20%'>{produto.pro_codigo}</TableCol>
+                                <TableCol width='60%'>{produto.pro_descricao}</TableCol>
+                                <TableCol width='20%'>{`R$${produto.pro_preco.toFixed(2)}`}</TableCol>
+                            </TableLine>
+                        ))
+                    :
+                        <TableLine>
+                            <TableCol colSpan={3}>Nenhum produto encontrado</TableCol>
+                        </TableLine>
+                    }
                 </TableBody>
             </Table>
         )
     }
 
     renderFull(){
+        let estoqueLen = this.props.estoque;
+        let estoque = this.props.estoque.sort((item1, item2) => item1.est_data_cadastro < item2.est_data_cadastro)[0];
+
         return (
             <Table>
                 <TableHeader>
@@ -40,24 +59,20 @@ export class LocalizadorProduto extends Component {
                     <TableColHeader width='15%'>Preço</TableColHeader>
                 </TableHeader>
                 <TableBody>
-                    <TableLine selected={true}>
-                        <TableCol width='20%'>180121651561</TableCol>
-                        <TableCol width='60%'>Mazzaia Menta</TableCol>
-                        <TableCol width='15%' align='center'>15</TableCol>
-                        <TableCol width='15%'>R$15,00</TableCol>
-                    </TableLine>
-                    <TableLine>
-                        <TableCol width='20%'>180121651561</TableCol>
-                        <TableCol width='60%'>Mazzaia Menta</TableCol>
-                        <TableCol width='15%' align='center'>15</TableCol>
-                        <TableCol width='15%'>R$15,00</TableCol>
-                    </TableLine>
-                    <TableLine>
-                        <TableCol width='20%'>180121651561</TableCol>
-                        <TableCol width='60%'>Mazzaia Menta</TableCol>
-                        <TableCol width='15%' align='center'>15</TableCol>
-                        <TableCol width='15%'>R$15,00</TableCol>
-                    </TableLine>
+                    { this.props.produtos.length > 0 ?
+                        this.props.produtos.map((produto, index) => (
+                            <TableLine key={produto.pro_codigo} selected={this.props.selected == produto.pro_codigo} onClick={() => this.props.selectProduto(produto.pro_codigo)}>
+                                <TableCol width='20%'>{produto.pro_codigo}</TableCol>
+                                <TableCol width='60%'>{produto.pro_descricao}</TableCol>
+                                <TableCol width='22%' align='center'>{produto.pro_qntd_estoque}</TableCol>
+                                <TableCol width='15%'>{`R$${(estoque ? estoque.est_preco_venda : 0).toFixed(2)}`}</TableCol>
+                            </TableLine>
+                        ))
+                    :
+                        <TableLine>
+                            <TableCol colSpan={4}>Nenhum produto encontrado</TableCol>
+                        </TableLine>
+                    }
                 </TableBody>
             </Table>
         )
@@ -70,7 +85,15 @@ export class LocalizadorProduto extends Component {
                     <div className="col-sm-12">
                         <div className="input-group">
                             <span className="input-group-addon"><i className="glyphicon glyphicon-barcode"></i></span>
-                            <input id="barras" type="text" className="form-control" name="barras" placeholder="Digite o nome ou bipe um produto" autoFocus />
+                            <input
+                                id="barras"
+                                type="text"
+                                className="form-control"
+                                name="barras"
+                                placeholder="Digite o nome ou bipe um produto"
+                                onChange={(e) => this.onProdutoFilter(e.currentTarget.value)}
+                                autoFocus 
+                            />
                         </div>
                     </div>
                 </div>
@@ -106,3 +129,15 @@ export class ListaProdutos extends Component {
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+        ...state.ProdutosReducer
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(ProdutosActions, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LocalizadorProdutos);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { LocalizadorProduto } from './Produto'
+import LocalizadorProduto from './Produto'
 import { Table, TableHeader, TableColHeader, TableBody, TableCol, TableLine, TableFooter } from '../template/Table'
 
 export class SelecionadorProduto extends Component {

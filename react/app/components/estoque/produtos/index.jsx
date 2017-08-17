@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Panel, PanelContainer, HeaderLine, TextBodyLine, CustomBodyLine, PanelFooter, PanelContent } from '../../template/Panel'
 import { Page, PageHeader, PageContent, PageContainer, PageHeaderIcons, HeaderIcon, LucroPercent } from '../../template/Page'
-import { LocalizadorProduto } from '../../localizadores/Produto'
+import LocalizadorProduto from '../../localizadores/Produto'
 import { ModalProdutoComposto } from './ProdutoComposto'
 import { ModalProdutoLote } from './ProdutoLote'
 import { ModalProdutoNovo } from './ProdutoNovo'
@@ -26,14 +26,7 @@ class Produtos extends Component {
                 pro_marca: 0,
                 pro_data_alteracao: null,
                 pro_data_cadastro: null,
-            },
-            estoque: {
-                est_codigo: 0,
-                est_cod_barras: 0,
-                est_preco_compra: 0,
-                est_preco_venda: 0,
-                est_produto: 0,
-                est_data_cadastro: null
+                pro_qntd_estoque: 0
             },
 
             modalProdutoComposto: false,
@@ -43,6 +36,7 @@ class Produtos extends Component {
         }
 
         this.addProduto = this.addProduto.bind(this);
+        this.addEstoque = this.addEstoque.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.removerProduto = this.removerProduto.bind(this);
         this.openModalProdutoComposto = this.openModalProdutoComposto.bind(this);
@@ -56,15 +50,8 @@ class Produtos extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        let {produto} = nextProps;
-        let {estoque} = nextProps;
-
-        let produtoState = produto.produtos.filter((produto) => produto.pro_codigo == produto.selected)[0];
-        let estoqueState = estoque.estoques.filter((estoque) => estoque.est_codigo == estoque.selected)[0];
-        this.setState({
-            produto: produtoState,
-            estoque: estoqueState
-        });
+        let produto = nextProps.produtos.filter((produto) => produto.pro_codigo == nextProps.selected)[0];
+        this.setState({ produto });
     }
 
     openModalProdutoComposto(){
@@ -98,6 +85,11 @@ class Produtos extends Component {
     async addProduto(produto){
         this.props.blockUi();
         await this.props.addProduto(produto);
+        this.props.unblockUi();
+    }
+    async addEstoque(estoque){
+        this.props.blockUi();
+        await this.props.addEstoque(estoque);
         this.props.unblockUi();
     }
     async handleClick(){
@@ -193,8 +185,9 @@ class Produtos extends Component {
                     opened={this.state.modalProdutoEstoque}
                     closeModal={this.closeModalProdutoEstoque}
                     openMessageModal={this.props.openModal}
+                    addEstoque={this.addEstoque}
                     closeMessageModal={this.props.closeModal}
-                    produtoCodigo={this.state.produto.pro_codigo}
+                    produtoCodigo={this.state.produto && this.state.produto.pro_codigo}
                 />
             </Page>
         )
@@ -203,12 +196,7 @@ class Produtos extends Component {
 
 function mapStateToProps(state){
     return {
-        produto: {
-            ...state.ProdutosReducer
-        },
-        estoque: {
-            ...state.EstoquesReducer
-        }
+        ...state.ProdutosReducer
     }
 }
 

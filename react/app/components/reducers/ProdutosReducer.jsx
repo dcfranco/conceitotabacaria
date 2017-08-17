@@ -1,6 +1,7 @@
 const initialState = {  
     produtos: [],
     selected: 0,
+    estoque: []
 }
 
 export function ProdutosReducer(state = initialState, action){
@@ -18,13 +19,13 @@ export function ProdutosReducer(state = initialState, action){
         case 'UPDATE_PRODUTOS':
             return {
                 ...state,
-                selected: action.produtos[0] && action.produtos[0].pro_codigo,
                 produtos: action.produtos
             }
         case 'SELECT_PRODUTO':
             return {
                 ...state,
-                selected: action.codigo
+                selected: action.codigo,
+                estoque: action.estoque
             }
         default:
             return state;
