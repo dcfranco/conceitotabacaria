@@ -8,6 +8,7 @@ import { ModalProdutoNovo } from './ProdutoNovo'
 import { ModalProdutoEstoque } from './ProdutoEstoque'
 import { ListaGrupos } from '../../localizadores/Grupos'
 import { ListaMarcas } from '../../localizadores/Marcas'
+import { MEDIDAS } from '../../localizadores/Medidas'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -38,6 +39,7 @@ class Produtos extends Component {
         this.addProduto = this.addProduto.bind(this);
         this.addEstoque = this.addEstoque.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.produtoChange = this.produtoChange.bind(this);
         this.removerProduto = this.removerProduto.bind(this);
         this.openModalProdutoComposto = this.openModalProdutoComposto.bind(this);
         this.closeModalProdutoComposto = this.closeModalProdutoComposto.bind(this);
@@ -99,7 +101,13 @@ class Produtos extends Component {
 
     }
 
+    produtoChange(event){
+
+    }
+
     render() {
+        let medida = MEDIDAS.filter(medida => medida.codigo == this.state.produto.pro_medida)[0].sigla;
+
         return (
             <Page size="11">
                 <PageHeader icon="fa fa-shopping-basket" title="Estoque - Produtos" description="Área para criar, alterar ou remover produtos" />
@@ -129,14 +137,28 @@ class Produtos extends Component {
                                     <HeaderLine icon="fa fa-calendar" description="Data de cadastro:" />
                                 </PanelContainer>
                                 <PanelContainer size="7" className="input-type">
-                                    <CustomBodyLine><input type="text" className="input col_100p" value="" /></CustomBodyLine>
-                                    <CustomBodyLine smallDescription="mg"><input type="text" className="input col_7" value="" /></CustomBodyLine>
-                                    <CustomBodyLine><select className="input col_100p">
-                                        <option value="">Miligramas (mg)</option>
-                                        <option value="">Gramas (g)</option>
-                                        <option value="">Mililitros (ml)</option>
-                                        <option value="">Litros (L)</option>
-                                        <option value="">Itens</option>
+                                    <CustomBodyLine><input
+                                        name="pro_descricao"
+                                        type="text"
+                                        className="input col_100p"
+                                        value={this.state.produto.pro_descricao}
+                                        onChange={this.produtoChange}
+                                    /></CustomBodyLine>
+                                    <CustomBodyLine smallDescription={medida}><input
+                                        name="pro_peso"
+                                        type="text"
+                                        className="input col_7"
+                                        value={this.state.produto.pro_peso}
+                                        onChange={this.produtoChange}
+                                    /></CustomBodyLine>
+                                    <CustomBodyLine><select
+                                        name="pro_medida"
+                                        className="input col_100p"
+                                        onChange={this.produtoChange}
+                                        value={this.state.produto.pro_medida}>
+                                            { MEDIDAS.map((medida) => (
+                                                <option key={medida.codigo} value={medida.codigo}>{medida.descricao}</option>
+                                            )) }
                                     </select></CustomBodyLine>
                                     <hr />
                                     <CustomBodyLine><input type="text" className="input col_7" value="R$0,00" /></CustomBodyLine>
