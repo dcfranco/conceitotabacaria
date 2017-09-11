@@ -14,6 +14,16 @@ export class ModalProdutoEstoque extends Component {
                 est_preco_compra: 0,
                 est_preco_venda: 0,
                 est_produto: 0
+            },
+            produto: {
+                pro_codigo: 0,
+                pro_descricao: "",
+                pro_peso: 0,
+                pro_medida: 1,
+                pro_marca: 0,
+                pro_data_alteracao: null,
+                pro_data_cadastro: null,
+                pro_qntd_estoque: 0
             }
         }
         
@@ -22,12 +32,13 @@ export class ModalProdutoEstoque extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.props.produtoCodigo != nextProps.produtoCodigo)
+        if(nextProps.produto && this.props.produto.pro_codigo != nextProps.produto.pro_codigo)
             this.setState({
                 estoque: {
                     ...this.state.estoque,
-                    est_produto: nextProps.produtoCodigo
-                }
+                    est_produto: nextProps.produto.pro_codigo
+                },
+                produto: nextProps.produto
             });
     }
 
@@ -50,8 +61,7 @@ export class ModalProdutoEstoque extends Component {
                 estoque: {
                     est_cod_barras: "",
                     est_preco_compra: 0,
-                    est_preco_venda: 0,
-                    est_produto: 0
+                    est_preco_venda: 0
                 }
             }, () => document.getElementById("est_cod_barras").focus())
         );
@@ -115,7 +125,8 @@ export class ModalProdutoEstoque extends Component {
                                 })}/></CustomBodyLine>
                             <hr />
                             <CustomBodyLine><ListaProdutos 
-                                selected={this.state.estoque.est_produto}
+                                marCodigo={this.state.produto.pro_marca}
+                                selected={this.state.produto.pro_codigo}
                                 disabled={true}
                             /></CustomBodyLine>
                             <hr />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
 import { ListaGrupos } from '../../localizadores/Grupos'
-import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
+import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine, MODAL_TYPE } from '../../template/Modal'
 
 export class ModalMarcaNova extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ export class ModalMarcaNova extends Component {
 
     validateFields(){
         return new Promise((resolve, reject) => {
-            let fields = ["mar_descricao", "mar_grupo"].filter((field) => !this.state.produto[field]);
+            let fields = ["mar_descricao", "mar_grupo"].filter((field) => !this.state[field]);
             if(fields.length > 0)
                 this.props.openMessageModal({
                     message: "Favor preencher todos os campos!",

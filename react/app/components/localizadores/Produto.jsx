@@ -33,7 +33,7 @@ export class LocalizadorProdutos extends Component {
                             <TableLine key={produto.pro_codigo} selected={this.props.selected == produto.pro_codigo} onClick={() => this.props.selectProduto(produto.pro_codigo)}>
                                 <TableCol width='20%'>{produto.pro_codigo}</TableCol>
                                 <TableCol width='60%'>{produto.pro_descricao}</TableCol>
-                                <TableCol width='20%'>{`R$${produto.pro_preco.toFixed(2)}`}</TableCol>
+                                <TableCol width='20%'>{`R$${(produto.pro_preco || 0).toFixed(2)}`}</TableCol>
                             </TableLine>
                         ))
                     :
@@ -65,7 +65,7 @@ export class LocalizadorProdutos extends Component {
                                 <TableCol width='20%'>{produto.pro_codigo}</TableCol>
                                 <TableCol width='60%'>{produto.pro_descricao}</TableCol>
                                 <TableCol width='22%' align='center'>{produto.pro_qntd_estoque}</TableCol>
-                                <TableCol width='15%'>{`R$${(estoque ? estoque.est_preco_venda : 0).toFixed(2)}`}</TableCol>
+                                <TableCol width='15%'>{`R$${(produto.pro_preco_venda || 0).toFixed(2)}`}</TableCol>
                             </TableLine>
                         ))
                     :
@@ -112,19 +112,28 @@ export class ListaProdutos extends Component {
     constructor(props){
         super(props);
         this.state = {
-            list: [
-                {value: 0, caption: 'Adalia Mango Tango Ice 50g'},
-                {value: 1, caption: 'Adalia Mango Tango Ice 50g'},
-                {value: 2, caption: 'Adalia Mango Tango Ice 50g'},
-                {value: 3, caption: 'Adalia Mango Tango Ice 50g'}
-            ]
+            produtos: []
         }
+        this.onChange = this.onChange.bind(this);
+    }
+
+    async componentWillReceiveProps(nextProps){
+        if(this.props.marCodigo != nextProps.marCodigo){
+            let produtos = await ProdutosService.getProdutosBy({ pro_marca: nextProps.marCodigo });
+            this.setState({produtos}, () => produtos[0] && this.onChange(produtos[0].pro_codigo));
+        }
+    }
+
+    onChange(value){
+        if(value >= 0)
+            this.props.onChange(value);
     }
 
     render(){
         return (
-            <select className="input col_100p" defaultValue={this.props.selectedIndex || 0}>
-                {this.state.list.map(item => (<option key={item.value} value={item.value}>{item.caption}</option>))}
+            <select disabled={this.props.disabled} className="input col_100p" value={this.props.selected || ''} onChange={(e) => this.onChange(e.currentTarget.value)}>
+                {!this.props.selected && <option value={-1}></option>}
+                {this.state.produtos.map(item => (<option key={item.pro_codigo} value={item.pro_codigo}>{item.pro_nome_completo}</option>))}
             </select>
         )
     }

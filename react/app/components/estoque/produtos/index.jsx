@@ -209,7 +209,7 @@ class Produtos extends Component {
                     openMessageModal={this.props.openModal}
                     addEstoque={this.addEstoque}
                     closeMessageModal={this.props.closeModal}
-                    produtoCodigo={this.state.produto && this.state.produto.pro_codigo}
+                    produto={this.state.produto}
                 />
             </Page>
         )

@@ -11,7 +11,7 @@ export function addEstoque(estoque){
 export function addProduto(produto){
     return async (dispatch) => {
         let result = await ProdutosService.putProduto(produto)
-        dispatch(updateProdutos('', produto.pro_codigo));
+        dispatch(updateProdutos('', result.insertId));
     }
 }
 

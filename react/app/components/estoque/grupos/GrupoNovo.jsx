@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Modal } from 'react-bootstrap';
-import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine } from '../../template/Modal'
+import { ModalHeader, ModalContent, ModalContainer, HeaderLine, TextBodyLine, CustomBodyLine, MODAL_TYPE } from '../../template/Modal'
 
 export class ModalGrupoNovo extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export class ModalGrupoNovo extends Component {
 
     validateFields(){
         return new Promise((resolve, reject) => {
-            let fields = ["gru_descricao"].filter((field) => !this.state.produto[field]);
+            let fields = ["gru_descricao"].filter((field) => !this.state[field]);
             if(fields.length > 0)
                 this.props.openMessageModal({
                     message: "Favor preencher todos os campos!",

@@ -3,7 +3,12 @@ import {sqlQuery} from './mysql';
 export default class ProdutosService {
     static async getProdutos(like = ''){
         try {
-            let produtos = await sqlQuery('select * from tb_produtos where pro_descricao like ?', [`%${like}%`]);
+            let query = 'SELECT a.*, \
+                        (SELECT COUNT(*) FROM tb_estoque b where b.est_produto = a.pro_codigo) pro_qntd_estoque, \
+                        (SELECT est_preco_venda FROM tb_estoque b where b.est_produto = a.pro_codigo ORDER BY est_data_cadastro DESC LIMIT 1) pro_preco_venda \
+                        FROM tb_produtos a \
+                        WHERE pro_descricao LIKE ?';
+            let produtos = await sqlQuery(query, [`%${like}%`]);
             return produtos;
         } catch(e){
             console.error(e);
@@ -13,12 +18,41 @@ export default class ProdutosService {
 
     static async getProduto(pro_codigo){
         try {
-            let produto = await sqlQuery('select * from tb_produtos where pro_codigo = ?', [pro_codigo]);
+            let query = 'SELECT a.*, \
+                        (SELECT COUNT(*) FROM tb_estoque b where b.est_produto = a.pro_codigo) pro_qntd_estoque, \
+                        (SELECT est_preco_venda FROM tb_estoque b where b.est_produto = a.pro_codigo ORDER BY est_data_cadastro DESC LIMIT 1) pro_preco_venda \
+                        FROM tb_produtos a \
+                        WHERE pro_codigo = ?';
+            let produto = await sqlQuery(query, [pro_codigo]);
             return produto;
         } catch(e){
             console.error(e);
         }
         return null;
+    }
+
+    static async getProdutosBy(where = {}){
+        try{
+            let query = "SELECT a.*, \
+                        CONCAT((SELECT mar_descricao FROM tb_marcas WHERE mar_codigo = a.pro_marca), \
+                            ' ', \
+                            pro_descricao, \
+                            ' ', \
+                            pro_peso, \
+                            (SELECT med_sigla FROM tb_medidas WHERE med_codigo = a.pro_medida)) PRO_NOME_COMPLETO \
+                        FROM tb_produtos a \
+                        WHERE 1=1";
+            let params = [];
+            Object.keys(where).map((condicional) => {
+                query = query.concat(" and ", condicional, " = ?");
+                params.push(where[condicional]);
+            });
+
+            let marcas = await sqlQuery(query, params);
+            return marcas;
+        } catch(e){
+            console.error(e);
+        }
     }
 
     static async postProduto(produto){

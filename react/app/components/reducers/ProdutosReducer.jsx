@@ -19,7 +19,8 @@ export function ProdutosReducer(state = initialState, action){
         case 'UPDATE_PRODUTOS':
             return {
                 ...state,
-                produtos: action.produtos
+                produtos: action.produtos,
+                selected: action.produtos[0] && action.produtos[0].pro_codigo
             }
         case 'SELECT_PRODUTO':
             return {
